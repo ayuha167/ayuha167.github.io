@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+    
+    
+      <link href="https://ayuha167.github.io/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
+
+  
+  <title>ウメブラの配信方法 : XsplitでTwitchへ生配信</title>
+
+  
+  
+  <link rel="stylesheet" href="https://ayuha167.github.io/css/hugo-octopress.css">
+
+  
+  
+
+  
+    <link rel="stylesheet" href="https://ayuha167.github.io/css/fork-awesome.min.css">
+  
+
+  
+  <link href="https://ayuha167.github.io/favicon.png" rel="icon">
+
+  
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="[ライブ配信 esports eスポーツ ストリーマー authenticity コミュニティ]">
+  <meta name="author" content="アユハ/Ayuha Nakamura">
+
+  
+  <meta name="generator" content="Hugo 0.82.0" />
+
+  
+  
+
+  
+  
+    
+
+  
+    <meta name="twitter:card" content="summary"/>
+  
+  
+  <meta name="twitter:title" content="ウメブラの配信方法 : XsplitでTwitchへ生配信"/>
+  <meta name="twitter:description" content="2016年5月現在、ウメブラのTwitch配信方法です。今の自分の現知識を裂き出したモノです。資する所があればと存じます。
+特に、Xsplitを用いたTwitchでの配信に注力して記しています。長いですが、情報を詰め込みました。今まで配信でお困りの点が有る方は、お手数ですが読まれてのち、更に不明点をツイッター @ayuha167 に下さればと思います。"/>
+  
+  <meta name="twitter:domain" content="parsiya.net"/>
+  <meta name="twitter:creator" content="@CryptoGangsta"/>
+
+
+  
+</head>
+<body>
+
+
+<header role="banner">
+<hgroup>
+  
+  <h1><a href="https://ayuha167.github.io/">恋心は超グリーディ</a></h1>
+    <h2>普段質問されることを文章起こした場所です。もしくは、たまに筆者の趣味の文章が交じります。筆者プロフィールはこちら。</h2>
+</hgroup>
+</header>
+
+
+<nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="https://www.example.net/">» About me</option>
+      
+        <option value="https://ayuha167.github.io/">» Blog</option>
+      
+        <option value="https://www.github.com/parsiya/hugo-octopress">» This theme on Github</option>
+      
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  
+    
+      <li><a href="https://www.example.net/" title="About me"  rel="noopener noreferrer">About me</a></li>
+    
+  
+    
+      <li><a href="https://ayuha167.github.io/" title="Blog">Blog</a></li>
+    
+  
+    
+      <li><a href="https://www.github.com/parsiya/hugo-octopress" title="This theme on Github"  rel="noopener noreferrer">This theme on Github</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="https://ayuha167.github.io/index.xml" target="_blank" type="application/rss+xml" title="RSS" rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:https://ayuha167.github.io/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+  <p class="meta">Jun 30, 2016
+     - 1 minute read 
+     - <a href="https://ayuha167.github.io/blog/2016/06/30/#disqus_thread">Comments</a>
+
+    
+    
+      - 
+    
+  </p>
+  <h1 class="entry-title">
+     ウメブラの配信方法 : XsplitでTwitchへ生配信 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          <p>2016年5月現在、ウメブラのTwitch配信方法です。今の自分の現知識を裂き出したモノです。資する所があればと存じます。<br>
+特に、Xsplitを用いたTwitchでの配信に注力して記しています。長いですが、情報を詰め込みました。今まで配信でお困りの点が有る方は、お手数ですが読まれてのち、更に不明点をツイッター <!-- raw HTML omitted -->@ayuha167<!-- raw HTML omitted --> に下さればと思います。</p>
+<p>インターネットの技術は進展し、皆さんがお持ちのPCでFull HDの配信が誰でも可能な時代が来ました。<br>
+パソコンは生き物です。更に謂うなれば、娘です。ポテンシャルを引き出せていない場合が多々にありますし、ご存じない部分も有るでしょう。その臨界点を引き出して配信に活かしたいのです。</p>
+<h2 id="ノーパソ">#ノーパソ</h2>
+<p>「ノーパソは配信が厳しい」という迷信が日本にはありますが、それは一概に正しくありません。Team Sp00kyだってノーパソです。ノーパソだから厳しいのではなく、純粋にパソコンのスペックを見ましょう。そのパソコンがどこまで能力があるのかは、CPU使用率との戦いになって来ます。それは以下 1.2 で説明いたします。</p>
+<h2 id="01-ウメブラとは">0.1 ウメブラとは</h2>
+<p>ウメブラとは、月例で行っているスマブラWiiUのユーザ大会です。自分の出身地です。</p>
+<!-- raw HTML omitted -->
+<p>SHI-Gというクルーで配信をしています（<!-- raw HTML omitted -->チャンネル<!-- raw HTML omitted -->）。2016年5月21日に行われた第23回は、技術的には今出来ること（高品質かつ現実的）を実現できました。日本でもよりたくさん強い品質のゲーム配信が欲しいので、参考にして頂ければと思います。</p>
+<h2 id="02-配線">0.2 配線</h2>
+<p><img src="https://ayuha167.github.io/images/Blog20160630.001.jpg" alt="&ldquo;ウメブラの配信方法 : XsplitでTwitchへ生配信&rdquo;"></p>
+<p>こんな風になっています。<br>
+オーディオミキサーは時間限定で用い、ビデオミキサーに繋いでいます。ビデオミキサーのHDMI出力をキャプチャしてUSB3.0形式でデスクトップPCに入れている訳です。ビデオミキサー周りはウメブラスタッフの勘左衛門さんが行っています。ありがとうございます！<br>
+キャプチャ（AVerMedia GC550) した映像は、PC内ではソフト（amarec等）で表示せず、直接Xsplit内で表示しています。<br>
+また、複数のウェブカメラをPCに繋ごうとして上手く行っていない方もいると思います。ウェブカメラはUSB2.0に繋ぎ、各ポートにつき1個までにしてください。USBハブで穴を増やしても、ウェブカメラは元のポート1個につき1個までしか基本受け付けません。</p>
+<p>#1. Xsplit<br>
+配信ソフト：Xsplitです（<!-- raw HTML omitted -->こちら<!-- raw HTML omitted -->からダウンロード）。ここからXsplit（えくすぷりっと）の説明をいたします。<br>
+私のゲーム競技人生の懐刀とも言えるソフトウェアで、私が始めた頃は v1.3 でしたが、今やv2.8が出ました。まだ v2.8 は慣れていないので、一番得意なv2.6で説明いたします。（Xsplit v2以降であればどれでも大体一緒です。）配信者の方は、是非お手元にXsplitを携えてご傾聴願います。<br>
+また、Xsplit は無料版を使うことも可能ですが、課金すべきです。ここはPersonal, Premium アカウントになっていることを前提にお話しします。（ちなみに、専門用語はXsplitもOBSも同じなので、OBSユーザの方も参考には出来ると思います）</p>
+<h2 id="10-ステージ画質">#1.0 ステージ画質</h2>
+<p>まずは、「ステージ画質」<br>
+<img src="https://ayuha167.github.io/images/Xsplit1.png" alt="&ldquo;ウメブラの配信方法 : XsplitでTwitchへ生配信&rdquo;"><br>
+（図1）</p>
+<p>&hellip;（図１）Xsplitウィンドウの右上にあるヤツですね。ここは何も考えずに1280x720px（720p）・60fps に設定します。本当に黙って従って下さい。1.3 で理由は説明します。パソコンのCPU次第では、Xsplitが「60fpsは無理です」と語って来ます。そんな時は30fpsにしましょう。</p>
+<p>一番気にして欲しいのは、チャンネルの「設定」。これで、画質が決まります。<br>
+<img src="https://ayuha167.github.io/images/Xsplit5.png" alt="&ldquo;ウメブラの配信方法 : XsplitでTwitchへ生配信&rdquo;">
+（図2）<br>
+＜チャンネル名の右歯車をクリックすると、「設定」に入れます＞</p>
+<h2 id="11-チャンネル設定--画質">1.1 チャンネル設定 = 画質</h2>
+<p>チャンネル設定に入りましたでしょうか？（図2）から（図3）へ。最初の列【ビデオのエンコード】は、画質を決めます。エンコードの【Codec】（方式）は以下から選べます。</p>
+<p><img src="https://ayuha167.github.io/images/Xsplit2.png" alt="&ldquo;ウメブラの配信方法 : XsplitでTwitchへ生配信&rdquo;">
+（図3）</p>
+<ul>
+<li>&ldquo;x264&rdquo; : 負担は重いが、画質が最もなめらか。</li>
+<li>&ldquo;QuickSync&rdquo; : 負担は軽いが、全体的に画質が落ちる。ブラーがかった感じになる。Windows8 以降のOSでデフォルト搭載。</li>
+<li>&ldquo;NVENC&rdquo; : 負担は凄く軽いが、動きが多いシーンでブロックノイズが乗り気味。Nvidiaのグラボを入れているPC専用。</li>
+</ul>
+<p>ウメブラでは、x264を選んでいます。</p>
+<p>更に次へ。【Bitrate】は少し方向の違う話なので後にいたします。続いて【モード】を見ます。「TwitchではCBRが推奨されています」とXsplitの警告にも出るので、CBRを選択します。そして一番重要なのがこの次。「CBR」の右下にある歯車を押して、詳細を開きます。<br>
+<img src="https://ayuha167.github.io/images/Xsplit3.png" alt="&ldquo;ウメブラの配信方法 : XsplitでTwitchへ生配信&rdquo;">
+（図4）</p>
+<p>【Video Encoding Setup】が開かれる（図4）ので、【Encoder Preset】をいじります。デフォルトは&quot;veryfast&quot;になっていますが、下にさげるほど画質は上がります。&ldquo;ultrafast&rdquo; が最悪画質, &ldquo;slow&rdquo; が最高画質となります。以下（図5）を参照。</p>
+<p><img src="https://ayuha167.github.io/images/Xsplit4.png" alt="&ldquo;ウメブラの配信方法 : XsplitでTwitchへ生配信&rdquo;">
+（図5）</p>
+<h2 id="12-高品質なら何でもいいのかというと">#1.2 高品質なら何でもいいのかというと</h2>
+<p>ここまで読まれた方は、「じゃあx264でslow設定にするわ（＾ω＾）！」と早とちりされるかと存じます。否。それでは大抵、パソコンの負荷が持ちません。そこで、Windowsデスクトップから「タスクマネージャ」を開きましょう。タスクバーから右クリックすると開けるアレです。<br>
+タスクマネージャを開きながら、配信テストをしてみましょう。配信中にCPU使用率が（目安）70%以下になるように【Encoder Preset】,【Codec】を選択してください。CPU使用率が75%を超えると（目安）、なんのエラーも出ていないのに配信画面がカクカクします。今まで原因不明のカクつきに悩んでいた方は、ここが原因の筈です。回線が原因で配信が止まる場合は、Xsplitがエラーを吐きます。</p>
+<hr>
+<p>例）最初は【Codec】x264に設定し、【Encoder Preset】は fast にしておく。しかし配信テストでCPU使用率が80%を超えていたので、【Encoder Preset】を fast から faster へ落とす。（またはCPU使用率が35%くらいだったので、faster から fast へ上げる。）&hellip;veryfastへ落としてもCPU使用率が70%を超えていたら、【Codec】をQuickSyncに替えてしまします。</p>
+<hr>
+<p>こうやって、パソコンのスペックで可能な限界の画質を試行錯誤することが可能です。ご愛用のパソコンと対話しながら、ポテンシャルを攻めて下さい。経験上、（目安）CPUが Core i5　のメモリ8GBのノーパソで、【Codec】QuickSync に於いてこのくらいの配信が可能です↓。</p>
+<!-- raw HTML omitted -->
+<p>以上、画質の設定（エンコードの設定）でした。ご自身がゲーミングPCを用いており、ここの説明がよく分からなかったら x264 の faster を選んで下さい。</p>
+<h2 id="13-より悪い環境で配信する場合">#1.3 より悪い環境で配信する場合</h2>
+<p>この【Video Encoding Setup】の【Encoder Preset】の下。ここではストリーム（配信）に流す解像度・fpsは変更出来ます。つまり、Xsplitの手元では720p・60fpsで見ながら、配信では360p・30fpsにする、ということが可能なのです。この設定をチャンネル毎に変更しておけば、「チャンネルAでは720pで、チャンネルBでは360pで配信する」ということも可能なのです。<br>
+先ほど「Xsplitのステージ解像度は720p・60fpsに黙ってしてください」と申しましたが、それはここがあるからです。<br>
+海外の大きい大会では、回線の調子が悪い際「540p・30fpsで配信し、720p・60fpsでローカル録画する」というテクニックを使います。（Xsplitには録画機能もついています。）</p>
+<p>無線LAN環境・不安定回線環境で配信される方はご参考に。</p>
+<h2 id="14-bitrate">#1.4 Bitrate</h2>
+<p>まだチャンネル設定は終わりません。【ビデオのエンコード】（図3）に残された項目【Bitrate】があります。是は、Twitchに送るデータ量の帯域幅です。「エンコード」がパソコン内部の処理で、「ビットレート」はパソコン外部 = ネットワークの処理です。【Bitrate】は大きくすればするほどエンコードを高品質にしてもOKです。他の設定でいかに高品質にしていても、ここが小さいと、データを送り切れません。ネットワークのエラーが出て、Xsplit がエラーを吐きます。</p>
+<p>経験上（目安）、1920x1080px（1080p）で 60fps でさえ、3500kbpsでOKです。先ほどの720pで60fpsを選択しても、【Bitrate】は2500kbpsでOKです。ウメブラは2800kbpsにしています。ご自身の環境での可能な【Bitrate】は、<!-- raw HTML omitted -->ookla speedtest<!-- raw HTML omitted --> などでネット環境（上り速度/Upload Speed）を調べれば分かります。でも、大抵有線LANであれば3000kbpsは満たしています。無線LANは一見3000kbpsがOKに見えて、現場に居る人のスマホ電波や天気と干渉して、不安定になりがちです。ご自宅でマンションタイプの場合は、時間帯によっていきなりネットが不安定になるので悪しからず。（まぁ&hellip;ゲームのオンライン対戦と一緒ですね。理論上大丈夫と思っても無線は信頼出来ないんですよ。）</p>
+<p>以上、Bitrateでした。よく分からなかったけれど安定した光回線・有線LANの方は、3000kbpsにしましょう。</p>
+<h2 id="15-オーディオ">#1.5 オーディオ</h2>
+<p>オーディオ（音声）設定は、デフォルトのままで大丈夫です。追加機能として、Xsplit の中で一度音声を確認することが可能です。<br>
+<img src="https://ayuha167.github.io/images/Xsplit6.png" alt="&ldquo;ウメブラの配信方法 : XsplitでTwitchへ生配信&rdquo;">
+（図6）</p>
+<p>↑上記（図6）の【Audio Preview】を設定すれば、設定したところに、配信で出るサウンドが流れます。イヤホンに流してチェックするのがオススメです。</p>
+<p>ウメブラ（というよりSHI-G）ではオーディオミキサーを買えておらず、ヘッドセット / 会場設置のミキサーの使い分けでオーディオを入れています。 オーディオに関しては奥が深いですし、より詳細なサイトもありますのでご参考にしてください。たとえば <!-- raw HTML omitted -->こちら<!-- raw HTML omitted --> など。</p>
+<p>#2. オーバーレイ<br>
+配信で載ってる「ロゴ」や「画面枠」のことを総称して「オーバーレイ」と呼びます。<br>
+配信に於ける、顔。配信者・組織のブランディングになる部分であり、やはりアイデンティティを確立するためにも設定すべき場所です。簡単なモノでも良いので、作成しましょう。ウメブラのモノはPhotoshop CS6で作成していますが、簡単なモノならばgimpでも充分に出来ます。</p>
+<p>ウメブラでは、ゲーム対戦画面でスポンサーさまのロゴをローテーションで表示しています。これはXsplitの Image Slideshow 昨日を用いています。シーンへの「追加」から「その他」にあります。</p>
+<p>また、選手名を動的に示す Stream Control（<!-- raw HTML omitted -->こちら<!-- raw HTML omitted -->からダウンロード）を用いています。これは難し目なので割愛。</p>
+<h2 id="追記">#追記</h2>
+<p>StreamControl は、最近以下のブログで使用方法を細かく記述しています。「大会で XX vs YY」を表示したい際はご利用ください。テンプレートもあります：<br>
+<a href="http://streamcontroljapan.blog.jp/">http://streamcontroljapan.blog.jp/</a></p>
+<p>そして、まだウメブラでは活用していない機能 My Transition。Team Sp00ky の配信では、ゲーム画面からプレイヤー画面へ切り替える際、ロゴを挟みます。&hellip;これは透過背景の動画を作成してからwebmファイルに変換するという大技を経るので、余程興味が在る方いがいは忘れましょう。（Team Sp00ky はXsplitの社員であり、最もXsplitを活かした配信だと考えて良いです。格ゲーでは当然のように享受するチャンネルですが、相当高いクオリティです。）</p>
+<p>配信技術は、基本的に以上で完了です。</p>
+<p>#3. ミラー</p>
+<p>話がずれますが、日本では多い「ミラー配信」は基本的には禁止です。（配信している母体が許可をしている場合に限りますが、普通はしていません。）ルールに明記はされていませんが、著作に関わることです。<br>
+この記事で述べたように、ネットでの生放送（厳密にはネットでの中継を「生放送」と呼んではいけない）というのはかなりの手間をかけてセッティングします。ゲームのイベントでは配信用の会社さんに依頼することが全てと言って過言ではないです。お金を出して依頼していますし、個人でもお金をかけて器材を揃えています。著作権があるので、ミラー配信をする場合はかなり慎重になって下さい。<br>
+追記：Twitch 内外を問わず、他プラットフォームでも原則、配信者/放送者に無断でミラーをするのは避けて下さい。過去におおごとになった例があります。</p>
+<p>ゲームイベントは、最大同時視聴を伸ばそうとしています（Twitchでは100万ユーザが同時滞在した大会もありますし、インフラ面は問題ないです）。イベントの生放送や、広告収入を挙げている個人の生放送もあります。これを無断で流すのは危険です。←すみません、私個人は法律には詳しくありません。とりあえず、言うなればイラストの転載と同じ扱いです。こちらの概念は近日広く浸透していると思いますので、生放送にも拡張いただければと思います。</p>
+<h2 id="31-host-機能">#3.1 host 機能</h2>
+<p>ウメブラも昨年はF.A.T.で同時視聴4300名を記録しています。これからも盛り上げていくつもりです。ただ、仲間内だけでチャットをしたいという要望がありますが、これを解決するためにTwitch内では公式のミラー機能： &ldquo;host&rdquo; がついています。<!-- raw HTML omitted -->こちらの記事<!-- raw HTML omitted --> をご参考あれ。</p>
+<p>#4. あとがき</p>
+<p>以上、配信設定でした。</p>
+<p>偏見ですが、日本では「ネット生放送」をどこか「仕事として受注するモノ」だという観念があります。ツイッターや生放送サイトでも、日本語のモノは企業が公式で発信しているコンテンツが比率的に他国より大きいですよね（体感）。だから企業はハイクオリティ配信、ゲーマーはある程度のクオリティ配信、だと決めつけ・妥協をしてしまっています（名推理）。そのせいか、配信技術に関して詳細な解説ページ・動画に関して、日本語の資料は少ないと言って良いです。悪循環です。</p>
+<p>そんな中、実は <!-- raw HTML omitted -->AJ<!-- raw HTML omitted --> という人物がおり、Xsplitの日本担当として窓口になっています。日本語で質問出来るので、是非たずねてみてください。<br>
+彼が一度講習のようなものを配信したこともあります：</p>
+<ul>
+<li><a href="https://www.twitch.tv/omoroiyankee/v/53820605">https://www.twitch.tv/omoroiyankee/v/53820605</a></li>
+<li><a href="https://www.twitch.tv/omoroiyankee/v/58064536">https://www.twitch.tv/omoroiyankee/v/58064536</a></li>
+</ul>
+<p>世界を見渡してください。LoL, DOTA, CS:GO, 格ゲー, 諸々。&hellip;いまどき、ゲームプレイをネット生放送していないプロゲーマーなんていません（概ね99%）。みんな自宅から楽しそうにファンとのコミュニケーションを取っています。スマブラーならNAKATやNairo, そしてMang0を見て下さい。<!-- raw HTML omitted -->前の記事<!-- raw HTML omitted -->にも関わりますが、広告塔としての役割がプロにはありますから、深窓のプロゲーマーは主流ではないということです。</p>
+<p>日本でもこう気軽に、発信する文化が根付くと嬉しいです。</p>
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">アユハ/Ayuha Nakamura</span></span>
+    
+    <time>Jun 30, 2016</time>
+    
+    </span>
+  </p>
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="https://ayuha167.github.io/blog/2016/05/17/" title="実績あるゲーマーがプロゲーマーになるためにすべきこと">実績あるゲーマーがプロゲーマーになるためにすべきこと</a>
+    
+
+    
+      <a class="basic-alignment right" href="https://ayuha167.github.io/blog/2016/08/17/" title="EVO2016で結果を残した日本スマブラWiiU勢。日本のシーンの秘訣。">EVO2016で結果を残した日本スマブラWiiU勢。日本のシーンの秘訣。</a>
+    
+  </p>
+  
+    
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+      <h1>ここでサイドバーの記事名を変更</h1>
+    
+
+    <p>
+      
+        Here&rsquo;s a <a href="https://www.example.net">link to example.net</a>
+New paragraph
+Another paragraph which has two spaces in the end to create a new line using markdown<br>
+New line but not a new paragraph
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      
+      
+      
+      <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/ayuha167/" title="https://twitter.com/ayuha167/"><i class="fa fa-twitter fa-3x"></i></a>
+      
+         
+      
+      
+      
+      
+      
+      
+      
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+    
+      <section class="odd">
+        
+          <h1>Sidebar Links</h1>
+        
+        
+          <li>
+            <a href="https://www.github.com/parsiya/hugo-octopress" title="This theme on Github" >This theme on Github</a>
+          </li>
+        
+          <li>
+            <a href="https://ayuha167.github.io/layouts/category/category.html" title="Taxonomy" >Taxonomy</a>
+          </li>
+        
+      </section>
+    
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+              <li class="post">
+                <a href="https://ayuha167.github.io/blog/2021/04/04/">Octopress から Hugo へ移行</a>
+              </li>
+            
+          
+            
+          
+            
+              <li class="post">
+                <a href="https://ayuha167.github.io/blog/2021/02/21/">ヒーリングっど♥プリキュア 振り返り</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="https://ayuha167.github.io/blog/2021/01/25/">スマホからTwitchへライブ配信 2021</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="https://ayuha167.github.io/blog/2021/01/13/">ゲーマーのコミュニティとは</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="https://ayuha167.github.io/blog/2020/12/20/">スマブラ勢は「終点固定アイテムなし」ではない</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="https://ayuha167.github.io/blog/2020/11/11/">Authenticity オーセンティシティ とは</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="https://ayuha167.github.io/blog/2020/10/27/">「いいね」を貰うためにゲームをする主義について</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="https://ayuha167.github.io/blog/2020/10/14/">映画『もののけ姫』普通の考察</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="https://ayuha167.github.io/blog/2020/08/13/">ゲーム：公式大会と非公式大会</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2021 アユハ/Ayuha Nakamura - <a href="https://ayuha167.github.io/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io" rel="noopener noreferrer">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/" rel="noopener noreferrer">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+
+    
+    
+    
+
+    
+      <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+
