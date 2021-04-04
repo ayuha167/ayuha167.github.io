@@ -48,14 +48,16 @@
     
 
   
-    <meta name="twitter:card" content="summary"/>
+  
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image:src" content="https://ayuha167.github.io/blog/2021/04/04/Hugo/TwitterCard.jpg"/>
   
   
   <meta name="twitter:title" content="Octopress から Hugo へ移行"/>
   <meta name="twitter:description" content="Octopress から Hugo へ移行しました"/>
   
-  <meta name="twitter:domain" content="parsiya.net"/>
-  <meta name="twitter:creator" content="@CryptoGangsta"/>
+  <meta name="twitter:domain" content="ayuha167.github.io"/>
+  <meta name="twitter:creator" content="@ayuha167"/>
 
 
   
@@ -234,13 +236,38 @@ url: &ldquo;blog/2013/12/23/title/&rdquo;
 <p>##移行</p>
 <p>Hugo ディレクトリで GitHub の初期設定が必要です。</p>
 <p><a href="https://prog-8.com/docs/git-env">https://prog-8.com/docs/git-env</a></p>
-<p>元のリポジトリが ayuha167.github.io だったので、</p>
+<p>元のリポジトリが ayuha167.github.io だったので、GitHub の Settings からテキトーに違う名前にして（ayuha1919.github.io など）、Rename を押します。</p>
+<p>で、右上の＋ボタンを押して &ldquo;New Repository&rdquo; を作成。こちらの名前（Repository Name）を ayuha167.github.io にします。</p>
 <p>このページを参考にpushしました↓
 <a href="https://qiita.com/satzz/items/e24bd703fc04fb45f7ef">https://qiita.com/satzz/items/e24bd703fc04fb45f7ef</a></p>
-<p>筆者へ。</p>
-<p>新ポストを送るには、</p>
+<p>そこから、公開の準備に入ります。ターミナルを開きます。私の場合、ブログを書いているローカルディレクトリの名前が /ayuha167 なので、</p>
 <pre><code>
-$ cd public/
+$ cd ayuha167
+$ git clone 【GitHubリポジトリのアドレス】
+
+</code></pre><p>をします。【GitHubリポジトリのアドレス】は GitHub で「↓Code」ボタンから現れます。すると ayuha167/ayuha167.github.io というディレクトリが出来ます。</p>
+<p>hugo コマンドを使うと、Hugo が作ってくれたページが /public ディレクトリ以下に生成されます。そのため、/pubglic 以下をリポジトリの gh-pages ブランチへ push します。ブランチを用意するところまでは：</p>
+<pre><code>
+$ hugo 
+$ cd public
+$ git init
+$ git remote add origin git@github.com:ayuha167/ayuha167.github.io
+$ git checkout -b gh-pages
+
+</code></pre><p>これで準備は完了です。このあと、実際に push するには、</p>
+<pre><code>
+$ git add --all
+$ git commit -m'initial commit for gh-pages'
+$ git push origin gh-pages
+
+</code></pre><p>です。これでページが公開されたはずです。</p>
+<p>せっかちな人は index.html （私の場合は <a href="https://ayuha167.github.io/index.html">https://ayuha167.github.io/index.html</a>）にアクセスすると、すぐにチェック出来ます。</p>
+<p>##備忘録</p>
+<p>筆者へ。</p>
+<p>新ポストを送るには、ブログのディレクトリ（/ayuha167）に入ってから、</p>
+<pre><code>
+$ hugo
+$ cd public
 $ git add --all
 $ git commit -m'initial commit for gh-pages'
 $ git push origin gh-pages
