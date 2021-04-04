@@ -50,7 +50,7 @@
   
   
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:image:src" content="https://ayuha167.github.io/blog/2021/04/04/Thumbnail/TwitterCard.jpg"/>
+    <meta name="twitter:image:src" content="https://ayuha167.github.io/images/Hugo/TwitterCard.jpg"/>
   
   
   <meta name="twitter:title" content="Octopress から Hugo へ移行"/>
@@ -211,7 +211,27 @@ url: &ldquo;blog/2013/12/23/title/&rdquo;
 のようにパーマリンクを書き、手動で設定しました。</p>
 <h2 id="twitter-card">Twitter Card</h2>
 <p><a href="https://themes.gohugo.io/hugo-octopress/#twitter-card">https://themes.gohugo.io/hugo-octopress/#twitter-card</a>
-この設定やっておいて。</p>
+この設定をしておくべきです。</p>
+<pre><code>
+[params]
+  # Twitter card config
+  # Enable.
+  twitterCardEnabled = true
+  # Don't include the @.
+  # twitterCardSite = 
+  twitterCardDomain = &quot;parsiya.net&quot;
+  # Don't include the @.
+  twitterCardAuthor = &quot;CryptoGangsta&quot;
+
+</code></pre><p>まずはこれを config.toml に書きます。ただ、これだけだと画像のURL指定が変になっているので、マニュアルにあった処理をします。
+your-website/themes/Hugo-Octopress/layouts/partials/custom_twitter_card.html ファイルを、 your-website/layouts/partials/custom-twitter-card.html にコピペします。
+で、</p>
+<pre><code>    &lt;meta name=&quot;twitter:image:src&quot; 
+
+</code></pre><p>ではじまる行がサムネイル(Twitter Card)を司っているので、ここを</p>
+<pre><code>    &lt;meta name=&quot;twitter:image:src&quot; content=&quot;https://ayuha167.github.io/images/Hugo/TwitterCard.jpg&quot;/&gt;
+
+</code></pre><p>に書き換えました。</p>
 <h2 id="table-of-content">Table of Content</h2>
 <p>今までやっていなかったんですが、</p>
 
