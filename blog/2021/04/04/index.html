@@ -161,6 +161,7 @@
     <li><a href="#パーマリンク">パーマリンク</a></li>
     <li><a href="#twitter-card">Twitter Card</a></li>
     <li><a href="#table-of-content">Table of Content</a></li>
+    <li><a href="#プレビュー">プレビュー</a></li>
   </ul>
 </nav>
           
@@ -246,6 +247,7 @@ your-website/themes/Hugo-Octopress/layouts/partials/custom_twitter_card.html フ
     <li><a href="#パーマリンク">パーマリンク</a></li>
     <li><a href="#twitter-card">Twitter Card</a></li>
     <li><a href="#table-of-content">Table of Content</a></li>
+    <li><a href="#プレビュー">プレビュー</a></li>
   </ul>
 </nav>
 
@@ -253,6 +255,9 @@ your-website/themes/Hugo-Octopress/layouts/partials/custom_twitter_card.html フ
 <p>##新記事を投稿</p>
 <p>このコマンドで</p>
 <p>$ hugo new blog</p>
+<h2 id="プレビュー">プレビュー</h2>
+<p>$ hugo server -D</p>
+<p>で、localhost:1313</p>
 <p>##移行</p>
 <p>Hugo ディレクトリで GitHub の初期設定が必要です。</p>
 <p><a href="https://prog-8.com/docs/git-env">https://prog-8.com/docs/git-env</a></p>
@@ -289,10 +294,26 @@ $ git push origin gh-pages
 $ hugo
 $ cd public
 $ git add --all
-$ git commit -m'initial commit for gh-pages'
+$ git commit -m'コメント'
 $ git push origin gh-pages
 
-</code></pre><p>で。</p>
+</code></pre><p>を打たなければなりません。これが面倒なので、ブログのディレクトリに push.sh というシェルコマンドファイルを作りました。以下です：</p>
+<pre><code>
+#!/bin/sh
+
+hugo
+
+cd public
+git add --all
+git commit -m'push from push.sh'
+git push origin gh-pages 
+
+cd ..
+
+</code></pre><p>そのため、内容をアップデートしましたら、ブログのディレクトリ直下で、</p>
+<pre><code>$ sh push.sh
+
+</code></pre><p>とやるだけでアップデート出来ます。（エラーチェックをするだけなら $ hugo や $ hugo server -D でも可。）</p>
         </div>
         
 
