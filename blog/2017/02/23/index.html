@@ -52,7 +52,17 @@
   
   
   <meta name="twitter:title" content="【訳】Twitch 配信, PCの基本"/>
-  <meta name="twitter:description" content="「Twitchで配信したいけれど、簡単でいいからPCで最低限のセッティングをしたい！」&hellip;という方のために書きました。Twitch 本社の @theGunrun の指導を和訳しました。網羅性と妥当性があると思いますが、疑問がありましたらツイッターで @ayuha167 へ。"/>
+  <meta name="twitter:description" content="「Twitchで配信したいけれど、簡単でいいからPCで最低限のセッティングをしたい！」&hellip;という方のために書きました。Twitch 本社の @theGunrun の指導を和訳しました。網羅性と妥当性があると思いますが、疑問がありましたらツイッターで @ayuha167へ。
+こんにちは、Twitch のアユハです。PCでの配信技術のお話です。最近Twitchが上り調子であるがゆえに、ここで基本を出そうと思いました。
+長いです。文字を読むのが嫌いな方も、ツイッターTLを読むようにしっかり読んでください。
+また、こちらは全てスグに無料でTwitch配信をすることを考えているため、エンコーダー（生放送ソフト）に OBS を用いることを前提に書いています。
+ 私はXsplitを使うことが多いです。Xsplitは こちらが参考になると思います。 スマホからの配信は こちら！  #PC配信の手引
+##1. Download OBS
+ こちらから &ldquo;Download OBS Studio&rdquo; をクリック : OBS OS（MacかWindowsか）を選択して、ファイルをダウンロード開始！  ##2. ダウンロードファイル
+ Mac ならば、.dmg ファイルを開き、中の .pkg ファイルを起動。あとは指示通りにダウンロード。 Windows ならば、.exe ファイルを開き、あとは指示通りにダウンロード。  ##3. ダウンロード出来たら OBS を開きましょう
+Mac は現在バージョン 0.16.2 でした。
+##4. OBS を観る
+ プレビュー  OBSの大部分を占めている今「黒い部分」が「プレビュー」です。ここに映るモノが全て、視聴者に映るモノになります。   ソース  「ソース」は「プレビュー」に表示するモノを入れる所です。 たとえばソースには以下のモノが来ます：ウェブカメ映像・動画ファイル・画像・スクリーンキャプチャ &hellip;   オーディオ  オーディオ = 音声は、OBS内では「ミキサー」の下に来ています。 右の「設定」ボタンを押して → 「音声」タブを選択すると、オーディオソースを足したり消したり出来ます。  Mac ではデフォルト音声は Mac 内臓のマイクだけです。デフォルトマイクを他のモノに替えていない限りは。 Windows ではデフォルト音声はデスクトップ音とデフォルトマイクのみです。      ##5."/>
   
   <meta name="twitter:domain" content="ayuha167.github.io"/>
   <meta name="twitter:creator" content="@ayuha167"/>
@@ -149,6 +159,7 @@
           
           
           <p>「Twitchで配信したいけれど、簡単でいいからPCで最低限のセッティングをしたい！」&hellip;という方のために書きました。Twitch 本社の @theGunrun の指導を和訳しました。網羅性と妥当性があると思いますが、疑問がありましたらツイッターで <!-- raw HTML omitted -->@ayuha167<!-- raw HTML omitted --> へ。</p>
+<!-- raw HTML omitted -->
 <p>こんにちは、Twitch のアユハです。PCでの配信技術のお話です。最近Twitchが上り調子であるがゆえに、ここで基本を出そうと思いました。<br>
 長いです。文字を読むのが嫌いな方も、ツイッターTLを読むようにしっかり読んでください。<br>
 また、こちらは全てスグに無料でTwitch配信をすることを考えているため、エンコーダー（生放送ソフト）に OBS を用いることを前提に書いています。</p>
@@ -158,20 +169,20 @@
 <li>スマホからの配信は <!-- raw HTML omitted -->こちら！<!-- raw HTML omitted --></li>
 </ul>
 <p>#PC配信の手引</p>
-<h2 id="1-download-obs">1. Download OBS</h2>
+<p>##1. Download OBS</p>
 <ul>
 <li>こちらから &ldquo;Download OBS Studio&rdquo; をクリック : <!-- raw HTML omitted -->OBS<!-- raw HTML omitted --></li>
 <li>OS（MacかWindowsか）を選択して、ファイルをダウンロード開始！</li>
 </ul>
-<h2 id="2-ダウンロードファイル">2. ダウンロードファイル</h2>
+<p>##2. ダウンロードファイル</p>
 <ul>
 <li>Mac ならば、.dmg ファイルを開き、中の .pkg ファイルを起動。あとは指示通りにダウンロード。</li>
 <li>Windows ならば、.exe ファイルを開き、あとは指示通りにダウンロード。</li>
 </ul>
-<h2 id="3-ダウンロード出来たら-obs-を開きましょう">3. ダウンロード出来たら OBS を開きましょう</h2>
+<p>##3. ダウンロード出来たら OBS を開きましょう</p>
 <p><img src="https://ayuha167.github.io/images/OBS_02.png" alt="&ldquo;代替メッセージ&rdquo;"></p>
 <p>Mac は現在バージョン 0.16.2 でした。</p>
-<h2 id="4-obs-を観る">4. OBS を観る</h2>
+<p>##4. OBS を観る</p>
 <ul>
 <li>プレビュー
 <ol>
@@ -196,7 +207,7 @@
 </ol>
 </li>
 </ul>
-<h2 id="5-twitchチャンネルで配信する設定">5. Twitchチャンネルで配信する設定</h2>
+<p>##5. Twitchチャンネルで配信する設定</p>
 <ul>
 <li>プレビュー映像をTwitchに送る前に、「設定」ボタンを押して「出力」「映像」「配信」の3タブにて設定をせねばなりません。</li>
 <li>「出力」ではこのように：http://ayuha167.github.io/images/OBS_03.png
@@ -233,7 +244,7 @@
 <ul>
 <li>ウィンドウ右下の「OK」を押して完成。</li>
 </ul>
-<h2 id="6-ソースを追加">6. ソースを追加</h2>
+<p>##6. ソースを追加</p>
 <ul>
 <li>「+」を押して映像にソースを追加しましょう。（ソースについては 4. にて）: <a href="http://ayuha167.github.io/images/OBS_07.png">http://ayuha167.github.io/images/OBS_07.png</a>
 <ol>
@@ -275,12 +286,12 @@
 </ol>
 </li>
 </ul>
-<h2 id="7-ソースの編集">7. ソースの編集</h2>
+<p>##7. ソースの編集</p>
 <ul>
 <li>ソースに加えた素材は、端っこをドラッグしてサイズを変更できます。</li>
 <li>altキーを押したままドラッグすると、クロッピング（切り取り）が可能です。画面比率が異なったり・オーバーレイを用いていたりする場合に、映像を特定のサイズにはめ込まないといけないときは便利です。</li>
 </ul>
-<h2 id="8-複数シーンの活用">8. 複数シーンの活用</h2>
+<p>##8. 複数シーンの活用</p>
 <ul>
 <li>ソースの左横に「シーン」とあるのがお分かりですか？「シーン」はソースの設定を複数保存できるブックマークのようなものです。例えば、配信開始時は「もうすぐ開幕」というフタ絵を表示して、時間が来たらカメラ映像に切り替えたい時、このシーンを活用します。</li>
 <li>シーンの追加
@@ -299,7 +310,7 @@
 </ol>
 </li>
 </ul>
-<h2 id="9-qa">9. Q&amp;A</h2>
+<p>##9. Q&amp;A</p>
 <ul>
 <li>生放送開始/終了は？
 <ol>
@@ -326,6 +337,7 @@
 twitch.tv/omoroiyankee から</p>
 <p>#以上</p>
 <p>以上、OBS からの配信方法でした。</p>
+
         </div>
         
 
@@ -366,6 +378,27 @@ twitch.tv/omoroiyankee から</p>
   </body>
   
   
+    
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "Your disqus shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     
   
 </footer>
