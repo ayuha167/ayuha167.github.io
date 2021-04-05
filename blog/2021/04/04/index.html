@@ -139,7 +139,7 @@
     
   </p>
   <h1 class="entry-title">
-    <a href="https://ayuha167.github.io/blog/2021/04/04/">Octopress から Hugo へ移行</a>
+     Octopress から Hugo へ移行 
   </h1>
 </header>
 
@@ -154,6 +154,7 @@
     <li><a href="#文字列置換">文字列置換</a></li>
     <li><a href="#パーマリンク">パーマリンク</a></li>
     <li><a href="#twitter-card">Twitter Card</a></li>
+    <li><a href="#ツイートボタン">ツイートボタン</a></li>
     <li><a href="#table-of-content">Table of Content</a></li>
     <li><a href="#プレビュー">プレビュー</a></li>
   </ul>
@@ -229,6 +230,17 @@ your-website/themes/Hugo-Octopress/layouts/partials/custom_twitter_card.html フ
 </code></pre><p>に書き換えました。これをしておけば、後はページの最初の部分に</p>
 <p>twitterImage: true</p>
 <p>の項目を追加するだけでサムネイルが自動生成されます。</p>
+<h2 id="ツイートボタン">ツイートボタン</h2>
+<p>addThis という外部サービスを使いました。</p>
+<p>ここを参考に。
+<a href="https://gohugohq.com/partials/add-this-social-sharing/">https://gohugohq.com/partials/add-this-social-sharing/</a>
+<a href="https://www.trhrkmk.com/posts/hugo-share-button-addthis/">https://www.trhrkmk.com/posts/hugo-share-button-addthis/</a></p>
+<p>完全に指示通りではなく、themes/Hugo-Octopress/ の中で操作しました。
+指示では /partials/ の中に addthis.html を作れとのことですが、私の場合は themes/Hugo-Octopress/layouts/partials の中に追加しました。</p>
+<p>config.toml に追記し、</p>
+<p>themes/Hugo-Octopress/layouts/partials/post_footer.html の中にテキトーに</p>
+<!-- raw HTML omitted -->
+<p>と書き加えたら起動しました。</p>
 <h2 id="table-of-content">Table of Content</h2>
 <p>今までやっていなかったんですが、</p>
 
@@ -242,6 +254,7 @@ your-website/themes/Hugo-Octopress/layouts/partials/custom_twitter_card.html フ
     <li><a href="#文字列置換">文字列置換</a></li>
     <li><a href="#パーマリンク">パーマリンク</a></li>
     <li><a href="#twitter-card">Twitter Card</a></li>
+    <li><a href="#ツイートボタン">ツイートボタン</a></li>
     <li><a href="#table-of-content">Table of Content</a></li>
     <li><a href="#プレビュー">プレビュー</a></li>
   </ul>
@@ -336,6 +349,23 @@ cd ..
 
     
   </p>
+  
+  <body>
+
+  <div class="addthis_inline_share_toolbox"></div>
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-606b1ae649209a1d" async></script>
+​<script type="text/javascript">
+    var addthis_config = addthis_config||{};
+    addthis_config.data_track_addressbar = false;
+    addthis_config.data_track_clickback = false;
+</script>
+
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-606b1ae649209a1d" async></script>
+
+
+  </body>
+  
   
     
   
