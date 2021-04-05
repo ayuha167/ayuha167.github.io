@@ -130,8 +130,9 @@
 
 <header>
   <p class="meta">Apr 4, 2021
-     - 2 minute read 
-     - <a href="https://ayuha167.github.io/blog/2021/04/04/#disqus_thread">Comments</a>
+    
+    
+    
 
     
     
@@ -141,6 +142,7 @@
   <h1 class="entry-title">
      Octopress から Hugo へ移行 
   </h1>
+  
 </header>
 
 
@@ -156,7 +158,10 @@
     <li><a href="#twitter-card">Twitter Card</a></li>
     <li><a href="#ツイートボタン">ツイートボタン</a></li>
     <li><a href="#table-of-content">Table of Content</a></li>
+    <li><a href="#新記事を投稿">新記事を投稿</a></li>
     <li><a href="#プレビュー">プレビュー</a></li>
+    <li><a href="#移行">移行</a></li>
+    <li><a href="#備忘録">備忘録</a></li>
   </ul>
 </nav>
           
@@ -173,7 +178,7 @@
 <p><a href="https://themes.gohugo.io/hugo-octopress/#twitter-card">https://themes.gohugo.io/hugo-octopress/#twitter-card</a></p>
 <p>このページです。↑筆者へ：常にここに帰ってください。</p>
 <h2 id="文字列置換">文字列置換</h2>
-<p>Octopressでは見出しは「＃＃」でしたが、Hugo では「＃＃ 」にしないといけないため、こうした置換を一斉に行いました。</p>
+<p>Octopressでは見出しは <code>##</code> でしたが、Hugo では <code>##　</code> にしないといけないため、こうした置換を一斉に行いました。</p>
 <p>しかし、Mac の sed コマンドでだいぶ苦戦しました。最初は指示に従って：</p>
 <pre><code> $ find . -type f -exec sed -i &quot;&quot; -e 's/##/## /g' {} \;
 </code></pre><p>と入れたのですが、エラーが置きました。どうやら、 -type f だと .DS_Store ファイルも含めてしまうため、</p>
@@ -181,35 +186,32 @@
 <li>sed: -i may not be used with stdin</li>
 <li>sed: RE error: illegal byte sequence</li>
 </ul>
-<p>といったエラーを吐くようです。そのため、-type f ではなく、 -name で .markdown 形式のファイルを一括指定しました。</p>
-<p>$ find . -name *.markdown -exec sed -i &quot;&quot; -e &rsquo;s/##/## /g' {} ;</p>
-<p>はえ〜</p>
-<p>$ find . -name *.markdown -exec sed -i &quot;&quot; -e &rsquo;s/<!-- raw HTML omitted -->/<!-- raw HTML omitted -->/g' {} ;</p>
-<p>Hugo はタイムスタンプの形式に指定（Hugoでは、&ldquo;2016-09-25T15:09:57&quot;のような形式のタイムスタンプでないとパースに失敗します）ので、こちらを適用↓</p>
-<p>$ find . -name *.markdown -exec sed -i &quot;&rdquo; -e &rsquo;s/date: ([0-9]{4}-[0-9]{2}-[0-9]{2}) ([0-9]{2}:[0-9]{2})$/date: \1T\2:00+09:00/g' {} ;</p>
-<h2 id="パーマリンク">パーマリンク</h2>
-<p>基本的に Octopressでは
-&lt;ブログ名&gt;.github.io./blog/YYYY/MM/DD/
-というURLになるようにセットしていました。_comfig.yml で
-permalink: /blog/:year/:month/:day/:title/
-と入れていました。</p>
-<p>これは Hugo では config.toml にて
-[permalinks]
-post = &ldquo;/blog/:year/:month/:day/&rdquo;
-と書いておけば継承できます。</p>
+<p>といったエラーを吐くようです。そのため <code>-type f </code> ではなく、 <code>-name </code> で .markdown 形式のファイルを一括指定しました。</p>
+<pre><code> $ find . -name \*.markdown -exec sed -i &quot;&quot; -e 's/##/## /g' {} \;   
+</code></pre><p>はえ〜</p>
+<pre><code> $ find . -name \*.markdown -exec sed -i &quot;&quot; -e 's/&lt;!-- more --&gt;/&lt;!--more--&gt;/g' {} \;
+</code></pre><p>Hugo はタイムスタンプの形式に指定（Hugoでは、&ldquo;2016-09-25T15:09:57&quot;のような形式のタイムスタンプでないとパースに失敗します）ので、こちらを適用↓</p>
+<pre><code> $ find . -name \*.markdown -exec sed -i &quot;&quot; -e 's/date: \([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\) \([0-9]\{2\}:[0-9]\{2\}\)$/date: \1T\2:00+09:00/g' {} \;
+</code></pre><h2 id="パーマリンク">パーマリンク</h2>
+<p>基本的に Octopressでは <code>&lt;ブログ名&gt;.github.io./blog/YYYY/MM/DD/</code> というURLになるようにセットしていました。<code>_comfig.yml</code> で</p>
+<pre><code>permalink: /blog/:year/:month/:day/:title/
+</code></pre><p>と入れていました。</p>
+<p>これは Hugo では <code>config.toml</code> にて</p>
+<pre><code> [permalinks]
+ post = &quot;/blog/:year/:month/:day/&quot;
+</code></pre><p>と書いておけば継承できます。</p>
 <p>しかし、Hugo に移行するにあたり、私のブログに不都合がありました。URL を維持するために、</p>
 <ul>
-<li>私のブログには、いくつかURLが （同上）/YYYY/MM/DD/title とか （同上）/YYYY/MM/DD/Ch1 とかで終わるページがある。</li>
-<li>Hugo でパーマリンクに /:slug/ を末尾に入れれば（ post = &ldquo;/blog/:year/:month/:day/:slug/&quot;）にすれば解決すると見せかけて、 :/slug は自動で勝手にタイトルをURLに入れてしまうため面倒</li>
+<li>私のブログには、いくつかURLが <code>（同上）/YYYY/MM/DD/title</code> とか <code>（同上）/YYYY/MM/DD/Ch1</code> とかで終わるページがある。</li>
+<li>Hugo でパーマリンクに <code>/:slug/</code> を末尾に入れれば（ <code>post = &quot;/blog/:year/:month/:day/:slug/&quot;</code>）にすれば解決すると見せかけて、<code>:/slug</code> は他の記事にも自動で勝手にタイトルをURLに入れてしまうため面倒</li>
 </ul>
-<p>という問題があったので、:slug は入れずに、例外的なブログ記事だけ、ファイル冒頭の段落（title: &ldquo;First Page&quot;などがある段落）に、
-url: &ldquo;blog/2013/12/23/title/&rdquo;
-のようにパーマリンクを書き、手動で設定しました。</p>
+<p>という問題があったので、<code>:slug</code> は入れずに、例外的なブログ記事だけ、ファイル冒頭の段落（<code>title: &quot;First Page&quot;</code>などがある段落）に、</p>
+<pre><code>url: &quot;blog/2013/12/23/title/&quot;
+</code></pre><p>のようにパーマリンクを書き、手動で設定しました。</p>
 <h2 id="twitter-card">Twitter Card</h2>
 <p><a href="https://themes.gohugo.io/hugo-octopress/#twitter-card">https://themes.gohugo.io/hugo-octopress/#twitter-card</a>
 この設定をしておくべきです。</p>
-<pre><code>
-[params]
+<pre><code>[params]
   # Twitter card config
   # Enable.
   twitterCardEnabled = true
@@ -218,29 +220,31 @@ url: &ldquo;blog/2013/12/23/title/&rdquo;
   twitterCardDomain = &quot;parsiya.net&quot;
   # Don't include the @.
   twitterCardAuthor = &quot;CryptoGangsta&quot;
-
 </code></pre><p>まずはこれを config.toml に書きます。ただ、これだけだと画像のURL指定が変になっているので、マニュアルにあった処理をします。
-your-website/themes/Hugo-Octopress/layouts/partials/custom_twitter_card.html ファイルを、 your-website/layouts/partials/custom-twitter-card.html にコピペします。
+<code>your-website/themes/Hugo-Octopress/layouts/partials/custom_twitter_card.html</code> ファイルを <code>your-website/layouts/partials/custom-twitter-card.html</code> にコピペします。
 で、</p>
-<pre><code>    &lt;meta name=&quot;twitter:image:src&quot; 
-
+<pre><code>&lt;meta name=&quot;twitter:image:src&quot; 
 </code></pre><p>ではじまる行がサムネイル(Twitter Card)を司っているので、ここを</p>
-<pre><code>    &lt;meta name=&quot;twitter:image:src&quot; content=&quot;https://ayuha167.github.io/images/Hugo/TwitterCard.jpg&quot;/&gt;
-
+<pre><code>&lt;meta name=&quot;twitter:image:src&quot; content=&quot;https://ayuha167.github.io/images/Hugo/TwitterCard.jpg&quot;/&gt;
 </code></pre><p>に書き換えました。これをしておけば、後はページの最初の部分に</p>
-<p>twitterImage: true</p>
-<p>の項目を追加するだけでサムネイルが自動生成されます。</p>
+<pre><code>twitterImage: true
+</code></pre><p>の項目を追加するだけでサムネイルが自動生成されます。</p>
 <h2 id="ツイートボタン">ツイートボタン</h2>
 <p>addThis という外部サービスを使いました。</p>
-<p>ここを参考に。
-<a href="https://gohugohq.com/partials/add-this-social-sharing/">https://gohugohq.com/partials/add-this-social-sharing/</a>
-<a href="https://www.trhrkmk.com/posts/hugo-share-button-addthis/">https://www.trhrkmk.com/posts/hugo-share-button-addthis/</a></p>
-<p>完全に指示通りではなく、themes/Hugo-Octopress/ の中で操作しました。
-指示では /partials/ の中に addthis.html を作れとのことですが、私の場合は themes/Hugo-Octopress/layouts/partials の中に追加しました。</p>
-<p>config.toml に追記し、</p>
-<p>themes/Hugo-Octopress/layouts/partials/post_footer.html の中にテキトーに</p>
-<!-- raw HTML omitted -->
-<p>と書き加えたら起動しました。</p>
+<p>ここを参考に。</p>
+<ul>
+<li><a href="https://gohugohq.com/partials/add-this-social-sharing/">https://gohugohq.com/partials/add-this-social-sharing/</a></li>
+<li><a href="https://www.trhrkmk.com/posts/hugo-share-button-addthis/">https://www.trhrkmk.com/posts/hugo-share-button-addthis/</a></li>
+</ul>
+<p>完全に指示通りではなく <code>themes/Hugo-Octopress/</code> の中で操作しました。
+指示では <code>/partials/</code> の中に <code>addthis.html </code> を作れとのことですが、私の場合は <code>themes/Hugo-Octopress/layouts/partials</code> の中に追加しました。</p>
+<p><code>config.toml</code> に追記し、</p>
+<p><code>themes/Hugo-Octopress/layouts/partials/post_footer.html</code> の中にテキトーに</p>
+<pre><code>&lt;body&gt;
+{{ partial &quot;addthis&quot; . }}
+{{ partial &quot;addthis-script&quot; . }}
+&lt;/body&gt;
+</code></pre><p>と書き加えたら起動しました。</p>
 <h2 id="table-of-content">Table of Content</h2>
 <p>今までやっていなかったんですが、</p>
 
@@ -256,18 +260,21 @@ your-website/themes/Hugo-Octopress/layouts/partials/custom_twitter_card.html フ
     <li><a href="#twitter-card">Twitter Card</a></li>
     <li><a href="#ツイートボタン">ツイートボタン</a></li>
     <li><a href="#table-of-content">Table of Content</a></li>
+    <li><a href="#新記事を投稿">新記事を投稿</a></li>
     <li><a href="#プレビュー">プレビュー</a></li>
+    <li><a href="#移行">移行</a></li>
+    <li><a href="#備忘録">備忘録</a></li>
   </ul>
 </nav>
 
 <p>こうすれば目次（ToC）が生成出来るようになりました。これは便利。</p>
-<p>##新記事を投稿</p>
+<h2 id="新記事を投稿">新記事を投稿</h2>
 <p>このコマンドで</p>
-<p>$ hugo new blog</p>
-<h2 id="プレビュー">プレビュー</h2>
-<p>$ hugo server -D</p>
-<p>で、localhost:1313</p>
-<p>##移行</p>
+<pre><code> $ hugo new blog
+</code></pre><h2 id="プレビュー">プレビュー</h2>
+<pre><code>$ hugo server -D
+</code></pre><p>で、<code>localhost:1313</code></p>
+<h2 id="移行">移行</h2>
 <p>Hugo ディレクトリで GitHub の初期設定が必要です。</p>
 <p><a href="https://prog-8.com/docs/git-env">https://prog-8.com/docs/git-env</a></p>
 <p>元のリポジトリが ayuha167.github.io だったので、GitHub の Settings からテキトーに違う名前にして（ayuha1919.github.io など）、Rename を押します。</p>
@@ -275,40 +282,31 @@ your-website/themes/Hugo-Octopress/layouts/partials/custom_twitter_card.html フ
 <p>このページを参考にpushしました↓
 <a href="https://qiita.com/satzz/items/e24bd703fc04fb45f7ef">https://qiita.com/satzz/items/e24bd703fc04fb45f7ef</a></p>
 <p>そこから、公開の準備に入ります。ターミナルを開きます。私の場合、ブログを書いているローカルディレクトリの名前が /ayuha167 なので、</p>
-<pre><code>
-$ cd ayuha167
+<pre><code>$ cd ayuha167
 $ git clone 【GitHubリポジトリのアドレス】
-
 </code></pre><p>をします。【GitHubリポジトリのアドレス】は GitHub で「↓Code」ボタンから現れます。すると ayuha167/ayuha167.github.io というディレクトリが出来ます。</p>
 <p>hugo コマンドを使うと、Hugo が作ってくれたページが /public ディレクトリ以下に生成されます。そのため、/pubglic 以下をリポジトリの gh-pages ブランチへ push します。ブランチを用意するところまでは：</p>
-<pre><code>
-$ hugo 
+<pre><code>$ hugo 
 $ cd public
 $ git init
 $ git remote add origin git@github.com:ayuha167/ayuha167.github.io
 $ git checkout -b gh-pages
-
 </code></pre><p>これで準備は完了です。このあと、実際に push するには、</p>
-<pre><code>
-$ git add --all
+<pre><code>$ git add --all
 $ git commit -m 'release `date '+%Y-%m-%d %H:%M’`'
 $ git push origin gh-pages
-
 </code></pre><p>です。これでページが公開されたはずです。</p>
 <p>せっかちな人は index.html （私の場合は <a href="https://ayuha167.github.io/index.html">https://ayuha167.github.io/index.html</a>）にアクセスすると、すぐにチェック出来ます。</p>
-<p>##備忘録</p>
+<h2 id="備忘録">備忘録</h2>
 <p>筆者へ。</p>
 <p>新ポストを送るには、ブログのディレクトリ（/ayuha167）に入ってから、</p>
-<pre><code>
-$ hugo
+<pre><code>$ hugo
 $ cd public
 $ git add --all
 $ git commit -m'コメント'
 $ git push origin gh-pages
-
-</code></pre><p>を打たなければなりません。これが面倒なので、ブログのディレクトリに push.sh というシェルコマンドファイルを作りました。以下です：</p>
-<pre><code>
-#!/bin/sh
+</code></pre><p>を打たなければなりません。これが面倒なので、ブログのディレクトリに <code>push.sh</code> というシェルコマンドファイルを作りました。以下です：</p>
+<pre><code>#!/bin/sh
 
 hugo
 
@@ -318,11 +316,14 @@ git commit -m'push from push.sh'
 git push origin gh-pages 
 
 cd ..
-
 </code></pre><p>そのため、内容をアップデートしましたら、ブログのディレクトリ直下で、</p>
 <pre><code>$ sh push.sh
-
-</code></pre><p>とやるだけでアップデート出来ます。（エラーチェックをするだけなら $ hugo や $ hugo server -D でも可。）</p>
+</code></pre><p>とやるだけでアップデート出来ます。</p>
+<p>エラーチェックをするだけなら</p>
+<pre><code>$ hugo
+</code></pre><p>や</p>
+<pre><code>$ hugo server -D
+</code></pre><p>でも可。</p>
         </div>
         
 
@@ -350,8 +351,8 @@ cd ..
     
   </p>
   
+  
   <body>
-
   <div class="addthis_inline_share_toolbox"></div>
 
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-606b1ae649209a1d" async></script>
@@ -362,7 +363,6 @@ cd ..
 </script>
 
   <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-606b1ae649209a1d" async></script>
-
 
   </body>
   
