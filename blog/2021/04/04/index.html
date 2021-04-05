@@ -178,18 +178,18 @@
 <p><a href="https://themes.gohugo.io/hugo-octopress/#twitter-card">https://themes.gohugo.io/hugo-octopress/#twitter-card</a></p>
 <p>このページです。↑筆者へ：常にここに帰ってください。</p>
 <h2 id="文字列置換">文字列置換</h2>
-<p>Octopressでは見出しは <code>##</code> でしたが、Hugo では <code>##　</code> にしないといけないため、こうした置換を一斉に行いました。</p>
+<p>Octopressでは見出しは <code>## </code> でしたが、Hugo では <code>## 　</code> にしないといけないため、こうした置換を一斉に行いました。</p>
 <p>しかし、Mac の sed コマンドでだいぶ苦戦しました。最初は指示に従って：</p>
-<pre><code> $ find . -type f -exec sed -i &quot;&quot; -e 's/##/## /g' {} \;
+<pre><code> $ find . -type f -exec sed -i &quot;&quot; -e 's/## /##  /g' {} \;
 </code></pre><p>と入れたのですが、エラーが置きました。どうやら、 -type f だと .DS_Store ファイルも含めてしまうため、</p>
 <ul>
 <li>sed: -i may not be used with stdin</li>
 <li>sed: RE error: illegal byte sequence</li>
 </ul>
 <p>といったエラーを吐くようです。そのため <code>-type f </code> ではなく、 <code>-name </code> で .markdown 形式のファイルを一括指定しました。</p>
-<pre><code> $ find . -name \*.markdown -exec sed -i &quot;&quot; -e 's/##/## /g' {} \;   
+<pre><code> $ find . -name \*.markdown -exec sed -i &quot;&quot; -e 's/## /##  /g' {} \;   
 </code></pre><p>はえ〜</p>
-<pre><code> $ find . -name \*.markdown -exec sed -i &quot;&quot; -e 's/&lt;!-- more --&gt;/&lt;!--more--&gt;/g' {} \;
+<pre><code> $ find . -name \*.markdown -exec sed -i &quot;&quot; -e 's/&lt;!--more--&gt;/&lt;!--more--&gt;/g' {} \;
 </code></pre><p>Hugo はタイムスタンプの形式に指定（Hugoでは、&ldquo;2016-09-25T15:09:57&quot;のような形式のタイムスタンプでないとパースに失敗します）ので、こちらを適用↓</p>
 <pre><code> $ find . -name \*.markdown -exec sed -i &quot;&quot; -e 's/date: \([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\) \([0-9]\{2\}:[0-9]\{2\}\)$/date: \1T\2:00+09:00/g' {} \;
 </code></pre><h2 id="パーマリンク">パーマリンク</h2>
