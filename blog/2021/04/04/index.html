@@ -54,7 +54,7 @@
   
   
   <meta name="twitter:title" content="Octopress から Hugo へ移行"/>
-  <meta name="twitter:description" content="Octopress から Hugo へ移行しました"/>
+  <meta name="twitter:description" content="Mac でブログの作成方法を Octopress から Hugo へ移行しました。その過程について自分向けに記しておきます。"/>
   
   <meta name="twitter:domain" content="ayuha167.github.io"/>
   <meta name="twitter:creator" content="@ayuha167"/>
@@ -152,33 +152,64 @@
           
             <nav id="TableOfContents">
   <ul>
-    <li><a href="#themes">themes</a></li>
+    <li><a href="#初期設定">初期設定</a></li>
+    <li><a href="#テーマ">テーマ</a></li>
+    <li><a href="#データ移行">データ移行</a></li>
     <li><a href="#文字列置換">文字列置換</a></li>
     <li><a href="#パーマリンク">パーマリンク</a></li>
-    <li><a href="#twitter-card">Twitter Card</a></li>
+    <li><a href="#twitter-card-ogp">Twitter Card (OGP)</a></li>
     <li><a href="#ツイートボタン">ツイートボタン</a></li>
     <li><a href="#table-of-content">Table of Content</a></li>
-    <li><a href="#新記事を投稿">新記事を投稿</a></li>
+  </ul>
+
+  <ul>
     <li><a href="#プレビュー">プレビュー</a></li>
-    <li><a href="#移行">移行</a></li>
+  </ul>
+
+  <ul>
     <li><a href="#備忘録">備忘録</a></li>
+    <li><a href="#備忘録埋め込み">備忘録：埋め込み</a></li>
   </ul>
 </nav>
           
-          <p>Octopress から Hugo へ移行しました</p>
-<p>GitHub を用いてブログを公開する方式 Octopressだったのですが、
-アップデートがされない → Octopress で入れたいプラグインがあって、そのために Ruby をアップデートしようとするとビルドできなくなる &hellip;というデッドロックに入り、Hugo 移行を決意しました。</p>
-<p>こちらのページを参考にしました。</p>
+          <p>Mac でブログの作成方法を Octopress から Hugo へ移行しました。その過程について自分向けに記しておきます。</p>
+<p>元々は GitHub Pages の機能を用いてブログを公開する方法に便乗していました。その代表的な手段として Octopress があったのですが、Octopress がアップデートされないことに伴い Ruby の version がデッドロックに入り、Hugo 移行を決意しました。</p>
+<p>主にこちらのページを参考にしました：</p>
 <ul>
 <li><a href="https://iriya-ufo.net/blog/2018/12/27/octopress-to-hugo/">https://iriya-ufo.net/blog/2018/12/27/octopress-to-hugo/</a></li>
 <li><a href="https://gam0022.net/blog/2016/09/25/migrated-from-octopress-to-hugo/">https://gam0022.net/blog/2016/09/25/migrated-from-octopress-to-hugo/</a></li>
 </ul>
-<h2 id="themes">themes</h2>
-<p>Octopress Hugo というものを使用し、同じデザインで戻って参りました。</p>
-<p><a href="https://themes.gohugo.io/hugo-octopress/#twitter-card">https://themes.gohugo.io/hugo-octopress/#twitter-card</a></p>
-<p>このページです。↑筆者へ：常にここに帰ってください。</p>
+<p>筆者の環境は：</p>
+<ul>
+<li>Mac OS X Catalina 10.15.7</li>
+</ul>
+<p>です。</p>
+<h2 id="初期設定">初期設定</h2>
+<p>まずは Hugo を入れなくていはなりません。</p>
+<pre><code>$ brew install hugo
+</code></pre><p>筆者は Homebrew でしたので、これで。（今後も <code>$</code> と書いた場合はターミナルです。）<br>
+そこから、最初のセットアップに入ります：</p>
+<pre><code>$ hugo new site &lt;ブログ名&gt;
+$ cd &lt;ブログ名&gt;
+$ git init 
+</code></pre><h2 id="テーマ">テーマ</h2>
+<p>Hugo はテーマを入れないと動きません。
+<a href="https://themes.gohugo.io/" target="_blank" rel="noopener">Hugo Theme Gallery</a>
+から選べます。各テーマの説明を見てインストールしてみてください。</p>
+<p>筆者はせっかくこれまで Octopress を使っていたので、
+<a href="https://themes.gohugo.io/hugo-octopress/" target="_blank" rel="noopener">&ldquo;Octopress Hugo&rdquo;</a>
+ というものを使用し、同じデザインで戻って参りました。</p>
+<ul>
+<li><a href="https://themes.gohugo.io/hugo-octopress/">https://themes.gohugo.io/hugo-octopress/</a></li>
+</ul>
+<p>このページです。↑筆者自身へ：常にここに帰ってください。</p>
+<h2 id="データ移行">データ移行</h2>
+<p>Octopress で markdown で書いていた記事を、URL そのままに全部移したいわけです。ターミナルで：</p>
+<pre><code>$ cp &lt;octopressディレクトリ&gt;/source/_posts/* &lt;hugoディレクトリ&gt;/content/post/
+$ cp -r &lt;octopressディレクトリ&gt;/source/images/ &lt;hugoディレクトリ&gt;/static/images
+</code></pre><p>これを打つと、markdownファイルと画像ファイルを移せます。（&lt;hugoディレクトリ&gt; は上の &lt;ブログ名&gt; と同じディレクトリです。）デフォルトでは <code>&lt;hugoディレクトリ&gt;/static/images</code> というディレクトリがなかったので、適宜手動で作ってください。</p>
 <h2 id="文字列置換">文字列置換</h2>
-<p>Octopressでは見出しは <code>## </code> でしたが、Hugo では <code>## 　</code> にしないといけないため、こうした置換を一斉に行いました。</p>
+<p>Octopress と Hugo では markdown 文法の書き方が微妙に違います。例えばOctopressでは見出しは <code>##</code> でしたが、Hugo では <code>##　</code> にしないといけないため、こうした置換を一斉に行います。</p>
 <p>しかし、Mac の sed コマンドでだいぶ苦戦しました。最初は指示に従って：</p>
 <pre><code> $ find . -type f -exec sed -i &quot;&quot; -e 's/## /##  /g' {} \;
 </code></pre><p>と入れたのですが、エラーが置きました。どうやら、 -type f だと .DS_Store ファイルも含めてしまうため、</p>
@@ -188,12 +219,12 @@
 </ul>
 <p>といったエラーを吐くようです。そのため <code>-type f </code> ではなく、 <code>-name </code> で .markdown 形式のファイルを一括指定しました。</p>
 <pre><code> $ find . -name \*.markdown -exec sed -i &quot;&quot; -e 's/## /##  /g' {} \;   
-</code></pre><p>はえ〜</p>
+</code></pre><p>「もっとよむ」でお馴染みの <code>more</code> タグを入れている方はこちらも：</p>
 <pre><code> $ find . -name \*.markdown -exec sed -i &quot;&quot; -e 's/&lt;!--more--&gt;/&lt;!--more--&gt;/g' {} \;
-</code></pre><p>Hugo はタイムスタンプの形式に指定（Hugoでは、&ldquo;2016-09-25T15:09:57&quot;のような形式のタイムスタンプでないとパースに失敗します）ので、こちらを適用↓</p>
+</code></pre><p>Hugo はタイムスタンプの形式に指定がある（Hugoでは、&ldquo;2016-09-25T15:09:57&quot;のような形式のタイムスタンプでないとダメ）ので、こちらを適用↓</p>
 <pre><code> $ find . -name \*.markdown -exec sed -i &quot;&quot; -e 's/date: \([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\) \([0-9]\{2\}:[0-9]\{2\}\)$/date: \1T\2:00+09:00/g' {} \;
 </code></pre><h2 id="パーマリンク">パーマリンク</h2>
-<p>基本的に Octopressでは <code>&lt;ブログ名&gt;.github.io./blog/YYYY/MM/DD/</code> というURLになるようにセットしていました。<code>_comfig.yml</code> で</p>
+<p>これは皆さんに当てはまるか分かりませんが、筆者は移行にあたって少し不便な要素がありました。基本的に Octopressでは <code>&lt;ブログ名&gt;.github.io./blog/YYYY/MM/DD/</code> というURLになるようにセットしていました。Octopress の <code>_comfig.yml</code> で</p>
 <pre><code>permalink: /blog/:year/:month/:day/:title/
 </code></pre><p>と入れていました。</p>
 <p>これは Hugo では <code>config.toml</code> にて</p>
@@ -205,12 +236,17 @@
 <li>私のブログには、いくつかURLが <code>（同上）/YYYY/MM/DD/title</code> とか <code>（同上）/YYYY/MM/DD/Ch1</code> とかで終わるページがある。</li>
 <li>Hugo でパーマリンクに <code>/:slug/</code> を末尾に入れれば（ <code>post = &quot;/blog/:year/:month/:day/:slug/&quot;</code>）にすれば解決すると見せかけて、<code>:/slug</code> は他の記事にも自動で勝手にタイトルをURLに入れてしまうため面倒</li>
 </ul>
-<p>という問題があったので、<code>:slug</code> は入れずに、例外的なブログ記事だけ、ファイル冒頭の段落（<code>title: &quot;First Page&quot;</code>などがある段落）に、</p>
+<p>という問題があったので、<code>:slug</code> は入れずに、例外的なブログ記事だけ、markdownファイル冒頭のヘッダー（<code>title: &quot;First Page&quot;</code>などがある段落）に、</p>
 <pre><code>url: &quot;blog/2013/12/23/title/&quot;
 </code></pre><p>のようにパーマリンクを書き、手動で設定しました。</p>
-<h2 id="twitter-card">Twitter Card</h2>
-<p><a href="https://themes.gohugo.io/hugo-octopress/#twitter-card">https://themes.gohugo.io/hugo-octopress/#twitter-card</a>
-この設定をしておくべきです。</p>
+<h2 id="twitter-card-ogp">Twitter Card (OGP)</h2>
+<p>Twitter や social media で、URLつきで投稿した場合にプレビューみたいなサムネイルを表示してくれるもの：これが OGP です。Hugo-Octopress では &ldquo;Twitter Card&rdquo; という名称でこれを与えています。</p>
+<ul>
+<li>
+<a href="https://themes.gohugo.io/hugo-octopress/#twitter-card" target="_blank" rel="noopener">Hugo-Octopress 公式指示</a>
+</li>
+</ul>
+<p>この設定をしておくべきです。まずは <code>config.toml</code>　に以下を加えます。</p>
 <pre><code>[params]
   # Twitter card config
   # Enable.
@@ -220,33 +256,76 @@
   twitterCardDomain = &quot;parsiya.net&quot;
   # Don't include the @.
   twitterCardAuthor = &quot;CryptoGangsta&quot;
-</code></pre><p>まずはこれを config.toml に書きます。ただ、これだけだと画像のURL指定が変になっているので、マニュアルにあった処理をします。
+</code></pre><p>ただ、これだけだと画像のURL指定が変になっているので、マニュアルにあった処理をします。
 <code>your-website/themes/Hugo-Octopress/layouts/partials/custom_twitter_card.html</code> ファイルを <code>your-website/layouts/partials/custom-twitter-card.html</code> にコピペします。
 で、</p>
 <pre><code>&lt;meta name=&quot;twitter:image:src&quot; 
 </code></pre><p>ではじまる行がサムネイル(Twitter Card)を司っているので、ここを</p>
 <pre><code>&lt;meta name=&quot;twitter:image:src&quot; content=&quot;https://ayuha167.github.io/images/Hugo/TwitterCard.jpg/&gt;
-</code></pre><p>に書き換えました。これをしておけば、後はページの最初の部分に</p>
+</code></pre><p>に書き換えます。これをしておけば、後は markdownページのヘッダーに</p>
 <pre><code>twitterImage: true
-</code></pre><p>の項目を追加するだけでサムネイルが自動生成されます。</p>
+</code></pre><p>の項目を追加するだけでOGP（Twitter Card）が自動生成されます。</p>
 <h2 id="ツイートボタン">ツイートボタン</h2>
-<p>addThis という外部サービスを使いました。</p>
-<p>ここを参考に。</p>
+<p>このページにもついている、読者に押して頂く「ツイートする」ボタンのことです。addThis という外部サービスを使いました。</p>
+<p>これらをご参考に：</p>
 <ul>
 <li><a href="https://gohugohq.com/partials/add-this-social-sharing/">https://gohugohq.com/partials/add-this-social-sharing/</a></li>
 <li><a href="https://www.trhrkmk.com/posts/hugo-share-button-addthis/">https://www.trhrkmk.com/posts/hugo-share-button-addthis/</a></li>
 </ul>
-<p>完全に指示通りではなく <code>themes/Hugo-Octopress/</code> の中で操作しました。
-指示では <code>/partials/</code> の中に <code>addthis.html </code> を作れとのことですが、私の場合は <code>themes/Hugo-Octopress/layouts/partials</code> の中に追加しました。</p>
-<p><code>config.toml</code> に追記し、</p>
-<p><code>themes/Hugo-Octopress/layouts/partials/post_footer.html</code> の中にテキトーに</p>
+<p>まずは 
+<a href="https://www.addthis.com/" target="_blank" rel="noopener">AddThis 公式サイト</a>
+ に行き、アカウント作成します。Google アカウントでいけます。右上の &ldquo;Profile Settings&rdquo; から自分の ID が見られるので、<code>ra-XXXXXXXXXXXXXX</code> 的な番号を控えておきましょう。</p>
+<p>続いてはローカルでの Hugo ディレクトリで作業です。 AddThis はおそらく、選んだテーマによって操作するディレクトリが変わります。筆者は <code>themes/Hugo-Octopress/</code> の中で操作しました。<br>
+例えば公式マニュアル指示では <code>/partials/</code> の中に <code>addthis.html </code> を作れとのことですが、私の場合は <code>themes/Hugo-Octopress/layouts/partials</code> の中に追加しました。</p>
+<p>いずれにせよ <code>/partials</code> に作った各ファイルの内訳は以下です：</p>
+<p><strong>addthis.html</strong></p>
+<pre><code>&lt;div class=&quot;addthis_inline_share_toolbox&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;//s7.addthis.com/js/300/addthis_widget.js#pubid={{- .Site.Params.addThis -}}&quot; async&gt;&lt;/script&gt;
+​&lt;script type=&quot;text/javascript&quot;&gt;
+    var addthis_config = addthis_config||{};
+    addthis_config.data_track_addressbar = false;
+    addthis_config.data_track_clickback = false;
+&lt;/script&gt;
+</code></pre><p><strong>addthis-script.html</strong></p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;//s7.addthis.com/js/300/addthis_widget.js#pubid={{- .Site.Params.addThis -}}&quot; async&gt;&lt;/script&gt;
+</code></pre><p>で、これを紐付けるために、 <code>config.toml</code> に自分の addThis ID を入力します。</p>
+<pre><code>[params]
+    addThis = &quot;ra-XXXXXXXXXXXXXXX&quot;
+</code></pre><p>これで準備完了です。あとは HTML でこのボタンは生成できますので、筆者は <code>themes/Hugo-Octopress/layouts/partials/post_footer.html</code> の中に：</p>
 <pre><code>&lt;body&gt;
 {{ partial &quot;addthis&quot; . }}
 {{ partial &quot;addthis-script&quot; . }}
 &lt;/body&gt;
-</code></pre><p>と書き加えたら起動しました。</p>
+</code></pre><p>この文を書き加えたら起動しました。</p>
 <h2 id="table-of-content">Table of Content</h2>
-<p>今までやっていなかったんですが、</p>
+<p>目次（Table of Content）を自動生成出来ます。markdown の文中で：</p>
+<p><code>
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#初期設定">初期設定</a></li>
+    <li><a href="#テーマ">テーマ</a></li>
+    <li><a href="#データ移行">データ移行</a></li>
+    <li><a href="#文字列置換">文字列置換</a></li>
+    <li><a href="#パーマリンク">パーマリンク</a></li>
+    <li><a href="#twitter-card-ogp">Twitter Card (OGP)</a></li>
+    <li><a href="#ツイートボタン">ツイートボタン</a></li>
+    <li><a href="#table-of-content">Table of Content</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#プレビュー">プレビュー</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#備忘録">備忘録</a></li>
+    <li><a href="#備忘録埋め込み">備忘録：埋め込み</a></li>
+  </ul>
+</nav>
+</code></p>
 
 
 
@@ -254,44 +333,59 @@
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#themes">themes</a></li>
+    <li><a href="#初期設定">初期設定</a></li>
+    <li><a href="#テーマ">テーマ</a></li>
+    <li><a href="#データ移行">データ移行</a></li>
     <li><a href="#文字列置換">文字列置換</a></li>
     <li><a href="#パーマリンク">パーマリンク</a></li>
-    <li><a href="#twitter-card">Twitter Card</a></li>
+    <li><a href="#twitter-card-ogp">Twitter Card (OGP)</a></li>
     <li><a href="#ツイートボタン">ツイートボタン</a></li>
     <li><a href="#table-of-content">Table of Content</a></li>
-    <li><a href="#新記事を投稿">新記事を投稿</a></li>
+  </ul>
+
+  <ul>
     <li><a href="#プレビュー">プレビュー</a></li>
-    <li><a href="#移行">移行</a></li>
+  </ul>
+
+  <ul>
     <li><a href="#備忘録">備忘録</a></li>
+    <li><a href="#備忘録埋め込み">備忘録：埋め込み</a></li>
   </ul>
 </nav>
 
-<p>こうすれば目次（ToC）が生成出来るようになりました。これは便利。</p>
-<h2 id="新記事を投稿">新記事を投稿</h2>
-<p>このコマンドで</p>
+<p>と記入するだけで目次（ToC）が生成出来るようになりました。もしくは、markdown のヘッダーで toc: true と記入すれば自動で最初に目次が発生します。</p>
+<p>&hellip;と、ここまでで下準備は終了です。</p>
+<h1 id="新記事を投稿">新記事を投稿</h1>
+<p>ブログ記事、つまり markdown の新しいページを作成したい場合は、このコマンドでいけます：</p>
 <pre><code> $ hugo new blog
 </code></pre><h2 id="プレビュー">プレビュー</h2>
+<p>出来たページを確認したい場合は、</p>
 <pre><code>$ hugo server -D
-</code></pre><p>で、<code>localhost:1313</code></p>
-<h2 id="移行">移行</h2>
-<p>Hugo ディレクトリで GitHub の初期設定が必要です。</p>
-<p><a href="https://prog-8.com/docs/git-env">https://prog-8.com/docs/git-env</a></p>
-<p>元のリポジトリが ayuha167.github.io だったので、GitHub の Settings からテキトーに違う名前にして（ayuha1919.github.io など）、Rename を押します。</p>
-<p>で、右上の＋ボタンを押して &ldquo;New Repository&rdquo; を作成。こちらの名前（Repository Name）を ayuha167.github.io にします。</p>
-<p>このページを参考にpushしました↓
-<a href="https://qiita.com/satzz/items/e24bd703fc04fb45f7ef">https://qiita.com/satzz/items/e24bd703fc04fb45f7ef</a></p>
-<p>そこから、公開の準備に入ります。ターミナルを開きます。私の場合、ブログを書いているローカルディレクトリの名前が /ayuha167 なので、</p>
-<pre><code>$ cd ayuha167
-$ git clone 【GitHubリポジトリのアドレス】
-</code></pre><p>をします。【GitHubリポジトリのアドレス】は GitHub で「↓Code」ボタンから現れます。すると ayuha167/ayuha167.github.io というディレクトリが出来ます。</p>
-<p>hugo コマンドを使うと、Hugo が作ってくれたページが /public ディレクトリ以下に生成されます。そのため、/pubglic 以下をリポジトリの gh-pages ブランチへ push します。ブランチを用意するところまでは：</p>
+</code></pre><p>で、ブラウザで <code>localhost:1313</code> へ行けば確認できます。</p>
+<h1 id="移行">移行</h1>
+<p>遂に移行の刻です。</p>
+<p>Hugo ディレクトリで GitHub の初期設定が必要です。ここを参考にしました：</p>
+<ul>
+<li><a href="https://prog-8.com/docs/git-env">https://prog-8.com/docs/git-env</a></li>
+</ul>
+<p>筆者はそこまで GitHub が得意ではないので、手動でやりました。例えば、元の Octopress でのリポジトリが ayuha167.github.io だったので、GitHub の Settings からテキトーに違う名前にして空けました（ayuha1919.github.io など）。リポジトリで Rename を押せばいけます。実質削除です。</p>
+<p>その後、GitHub で &ldquo;New Repository&rdquo; を作成。こちらの名前（Repository Name）を ayuha167.github.io にします。（つまり筆者の場合、上の &lt;ブログ名&gt; の部分が ayuha167 にあたります。）</p>
+<p>あとは、ここまで作ってきたローカルの &lt;ブログ名&gt; ディレクトリにあるファイルを Push します。このページを参考にpushしました↓</p>
+<ul>
+<li><a href="https://qiita.com/satzz/items/e24bd703fc04fb45f7ef">https://qiita.com/satzz/items/e24bd703fc04fb45f7ef</a></li>
+</ul>
+<p>ターミナルにて、</p>
+<pre><code>$ cd &lt;ブログ名&gt;
+$ git clone &lt;GitHubリポジトリのアドレス&gt;
+</code></pre><p>をします。<code>&lt;GitHubリポジトリのアドレス&gt;</code> は GitHub で「↓Code」ボタンから現れます。たいてい <code>&lt;ユーザー名&gt;/&lt;ブログ名&gt;.github.io</code> のはずです。<br>
+上のコマンドを実行すると、&lt;ブログ名&gt;.github.io という空のディレクトリが生成されます。</p>
+<p><code>$ hugo</code> コマンドを使うと、Hugo が作ってくれたページが <code>/public</code> ディレクトリ以下に生成されます。そのため <code>/pubglic</code> 以下をリポジトリの gh-pages ブランチへ push します。ブランチを用意するところまでは：</p>
 <pre><code>$ hugo 
 $ cd public
 $ git init
 $ git remote add origin git@github.com:ayuha167/ayuha167.github.io
 $ git checkout -b gh-pages
-</code></pre><p>これで準備は完了です。このあと、実際に push するには、</p>
+</code></pre><p>これで準備完了です。このあと、実際に push するには、</p>
 <pre><code>$ git add --all
 $ git commit -m 'release `date '+%Y-%m-%d %H:%M’`'
 $ git push origin gh-pages
@@ -306,6 +400,7 @@ $ git add --all
 $ git commit -m'コメント'
 $ git push origin gh-pages
 </code></pre><p>を打たなければなりません。これが面倒なので、ブログのディレクトリに <code>push.sh</code> というシェルコマンドファイルを作りました。以下です：</p>
+<p><strong>push.sh</strong></p>
 <pre><code>#!/bin/sh
 
 hugo
@@ -319,11 +414,15 @@ cd ..
 </code></pre><p>そのため、内容をアップデートしましたら、ブログのディレクトリ直下で、</p>
 <pre><code>$ sh push.sh
 </code></pre><p>とやるだけでアップデート出来ます。</p>
-<p>エラーチェックをするだけなら</p>
-<pre><code>$ hugo
-</code></pre><p>や</p>
-<pre><code>$ hugo server -D
-</code></pre><p>でも可。</p>
+<p>エラーチェックをするだけなら <code>$ hugo</code> や <code>$ hugo server -D</code> でも可です。</p>
+<h2 id="備忘録埋め込み">備忘録：埋め込み</h2>
+<p>Hugo の埋め込みは特殊です。例えば YouTube は：</p>
+<pre><code>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/12vAUFA8O2E" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+</code></pre><p>となります。</p>
         </div>
         
 
