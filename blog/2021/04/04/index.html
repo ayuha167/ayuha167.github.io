@@ -120,6 +120,18 @@
 </nav>
 
 
+<script>
+    MathJax = {
+        tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+    };
+</script>
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
 <div id="main">
   <div id="content">
     <div>
@@ -394,13 +406,26 @@ cd ..
 </code></pre><p>とやるだけでアップデート出来ます。</p>
 <p>エラーチェックをするだけなら <code>$ hugo</code> や <code>$ hugo server -D</code> でも可です。</p>
 <h2 id="備忘録埋め込み">備忘録：埋め込み</h2>
-<p>Hugo の埋め込みは特殊です。例えば YouTube は：</p>
+<p>Hugo の埋め込みは特殊です。iframe がそのままでは使えません。例えば YouTube は：</p>
 <pre><code>｛｛&lt; youtube 12vAUFA8O2E &gt;｝｝
 </code></pre><p>となります。結果は以下：</p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/12vAUFA8O2E" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
+
+<p>これは、Shortcode と呼ばれる方式です。 <code>/layouts/shortcodes/shortcode名.html</code> というファイルを置くことで、markdown 中でも iframe を有効化出来ます。</p>
+<p>
+<a href="https://qiita.com/waytoa/items/4107945cbd3883f51755" target="_blank" rel="noopener">こちらの記事</a>
+ を参考に。</p>
+<p>例えば Google Drive のファイル埋め込みを有効化する場合、<code>/layouts/shortcodes/googledrive.html</code> というファイルを作成し、中身は：</p>
+<pre><code>&lt;div class=&quot;embed google-drive&quot;&gt;
+	&lt;iframe src=&quot;https://drive.google.com/file/d/{{ index .Params 0}}/preview&quot; width=&quot;640&quot; height=&quot;360&quot; allow=&quot;autoplay&quot;&gt;
+	&lt;/iframe&gt;
+&lt;/div&gt;
+</code></pre><p>とします。すると、記事内で：</p>
+<pre><code>{{＜ googledrive 固有コード ＞}}
+</code></pre><p>と打てば、 <code>https://drive.google.com/file/d/固有コード/preview</code> だったモノが埋め込まれます。このように、iframe が向こうでも自分で Shortcode を作って実用させられます。</p>
         </div>
         
 
@@ -528,6 +553,12 @@ cd ..
           
             
               <li class="post">
+                <a href="https://ayuha167.github.io/blog/2021/06/20/">コミュニティとは - 定義と歴史</a>
+              </li>
+            
+          
+            
+              <li class="post">
                 <a href="https://ayuha167.github.io/blog/2021/06/12/">主観 Esports の歴史</a>
               </li>
             
@@ -571,12 +602,6 @@ cd ..
             
               <li class="post">
                 <a href="https://ayuha167.github.io/blog/2020/11/11/">Authenticity オーセンティシティ とは</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="https://ayuha167.github.io/blog/2020/10/27/">「いいね」を貰うためにゲームをする主義について</a>
               </li>
             
           
