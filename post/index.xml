@@ -6,7 +6,25 @@
     <description>Recent content in Posts on 恋心は超グリーディ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 06 Jul 2021 02:45:34 +0900</lastBuildDate><atom:link href="https://ayuha167.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Jul 2021 02:45:34 +0900</lastBuildDate><atom:link href="https://ayuha167.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>日本 Counter-Strike： noppo 列伝</title>
+      <link>https://ayuha167.github.io/blog/2021/07/20/</link>
+      <pubDate>Tue, 20 Jul 2021 02:45:34 +0900</pubDate>
+      
+      <guid>https://ayuha167.github.io/blog/2021/07/20/</guid>
+      <description>&lt;p&gt;「とんでもないPlayが出てますよ今」をFPSの実況中継で聴いたことが有る方も多いでしょう。この文言は何故有名であり、どのような思いが込められていたのでしょう。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>日本 Counter-Strike： XrayN 列伝</title>
+      <link>https://ayuha167.github.io/blog/2021/07/19/</link>
+      <pubDate>Mon, 19 Jul 2021 01:45:34 +0900</pubDate>
+      
+      <guid>https://ayuha167.github.io/blog/2021/07/19/</guid>
+      <description>&lt;p&gt;日本初のプロゲーマー達はどのように生まれ、何をプレイし、どのように生きていたのでしょうか？勝利に対して狂信的で、苛烈だったその実態を追いかけます。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>予選がBo1で本戦がBo3という形式の論点</title>
       <link>https://ayuha167.github.io/blog/2021/07/06/</link>
@@ -831,24 +849,6 @@
 
 &lt;a href=&#34;http://morizyun.github.io/blog/octopress-gitpage-minimum-install-guide/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;酒と涙とRubyとRails&lt;/a&gt;
 &lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>日本 Counter-Strike： noppo 列伝</title>
-      <link>https://ayuha167.github.io/blog/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ayuha167.github.io/blog/1/01/01/</guid>
-      <description>&lt;p&gt;「とんでもないPlayが出てますよ今」をFPSの実況中継で聴いたことが有る方も多いでしょう。この文言は何故有名であり、どのような思いが込められていたのでしょう。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>日本 Counter-Strike： XrayN 列伝</title>
-      <link>https://ayuha167.github.io/blog/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ayuha167.github.io/blog/1/01/01/</guid>
-      <description>&lt;p&gt;日本初のプロゲーマー達はどのように生まれ、何をプレイし、どのように生きていたのでしょうか？勝利に対して狂信的で、苛烈だったその実態を追いかけます。&lt;/p&gt;</description>
     </item>
     
   </channel>
