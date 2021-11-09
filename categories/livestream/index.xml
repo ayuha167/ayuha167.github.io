@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>livestream on 恋心は超グリーディ</title>
+    <link>https://ayuha167.github.io/categories/livestream/</link>
+    <description>Recent content in livestream on 恋心は超グリーディ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 20 Sep 2021 01:00:34 +0900</lastBuildDate><atom:link href="https://ayuha167.github.io/categories/livestream/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>通話会議を高品質化</title>
+      <link>https://ayuha167.github.io/blog/2021/09/20/</link>
+      <pubDate>Mon, 20 Sep 2021 01:00:34 +0900</pubDate>
+      
+      <guid>https://ayuha167.github.io/blog/2021/09/20/</guid>
+      <description>&lt;p&gt;そろそろテレワークに慣れて来たという方へ、ライブ配信の道の者から一歩上の通話をご紹介します。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>スマホからTwitchへライブ配信 2021</title>
+      <link>https://ayuha167.github.io/blog/2021/01/25/</link>
+      <pubDate>Mon, 25 Jan 2021 15:38:27 +0900</pubDate>
+      
+      <guid>https://ayuha167.github.io/blog/2021/01/25/</guid>
+      <description>&lt;p&gt;スマホからTwitchへ、ゲームをキャプチャしたライブ配信が可能になったため（β版）、その手法について2021年1月現在のものをまとめました。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>初心者ストリーマー向けガイド</title>
+      <link>https://ayuha167.github.io/blog/2017/03/03/</link>
+      <pubDate>Fri, 03 Mar 2017 17:48:16 +0900</pubDate>
+      
+      <guid>https://ayuha167.github.io/blog/2017/03/03/</guid>
+      <description>&lt;p&gt;&lt;!-- raw HTML omitted --&gt;theGunrun&lt;!-- raw HTML omitted --&gt;翻訳シリーズです。今回は First Timer Guide ということで、初心者向けの内容です。ゲーム実況・個人配信・ストリーマー等々名称は様々ございますが、どうやったら人気になれるかの流れを書きました（訳しました）。逆にこれらをご存じなかったら初心者ということになりますので、心してかかってください。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Twitchストリーマーガイド一覧</title>
+      <link>https://ayuha167.github.io/blog/2017/03/02/</link>
+      <pubDate>Thu, 02 Mar 2017 16:32:39 +0900</pubDate>
+      
+      <guid>https://ayuha167.github.io/blog/2017/03/02/</guid>
+      <description>&lt;p&gt;Twitch での 生配信/ライブストリーム/生放送 の方法一覧です。新情報が出る度に随時追記して行きます。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>【訳】Twitch 配信, PCの基本</title>
+      <link>https://ayuha167.github.io/blog/2017/02/23/</link>
+      <pubDate>Thu, 23 Feb 2017 18:14:50 +0900</pubDate>
+      
+      <guid>https://ayuha167.github.io/blog/2017/02/23/</guid>
+      <description>&lt;p&gt;「Twitchで配信したいけれど、簡単でいいからPCで最低限のセッティングをしたい！」&amp;hellip;という方のために書きました。Twitch 本社の @theGunrun の指導を和訳しました。網羅性と妥当性があると思いますが、疑問がありましたらツイッターで &lt;!-- raw HTML omitted --&gt;@ayuha167&lt;!-- raw HTML omitted --&gt; へ。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
