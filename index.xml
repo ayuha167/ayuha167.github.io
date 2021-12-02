@@ -6,7 +6,16 @@
     <description>Recent content on 恋心は超グリーディ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 20 Sep 2021 01:00:34 +0900</lastBuildDate><atom:link href="https://ayuha167.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Dec 2021 01:00:34 +0900</lastBuildDate><atom:link href="https://ayuha167.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ゲーム大会こんなことあった事例集</title>
+      <link>https://ayuha167.github.io/blog/2021/12/03/</link>
+      <pubDate>Fri, 03 Dec 2021 01:00:34 +0900</pubDate>
+      
+      <guid>https://ayuha167.github.io/blog/2021/12/03/</guid>
+      <description>&lt;p&gt;「ゲーマーが大会を運営してこんな揉め事がありました」という事例で、私がよくご紹介するものをまとめて公開することとしました。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>通話会議を高品質化</title>
       <link>https://ayuha167.github.io/blog/2021/09/20/</link>
@@ -876,23 +885,6 @@
 
 &lt;a href=&#34;http://morizyun.github.io/blog/octopress-gitpage-minimum-install-guide/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;酒と涙とRubyとRails&lt;/a&gt;
 &lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ayuha167.github.io/blog/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ayuha167.github.io/blog/1/01/01/</guid>
-      <description>&lt;h2 id=&#34;twitterimage-true&#34;&gt;title: ゲーム実況は思考を共有する存在
-date: 2021-10-22 01:00:34 +0900
-draft: false
-toc: false
-comments: false
-categories:
-tags:
-twitterImage: true&lt;/h2&gt;
-&lt;p&gt;「ゲーム実況」はゲームを共有するもの、と一見考えられがちですが、「そうではない」というのが筆者の見方です。特に個人が行うライブ配信は、視聴者から見てどのような認識・感覚が動作しているのでしょうか？&lt;/p&gt;</description>
     </item>
     
   </channel>
