@@ -38,7 +38,7 @@
   <meta name="author" content="アユハ/Ayuha Nakamura">
 
   
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.118.2">
 
   
   
@@ -187,7 +187,9 @@
 <h3 id="プレイヤーランキング">プレイヤーランキング</h3>
 <p>じゃあ実力シード順はどう作るのかと言うと、テニスのように「プレイヤーランキング」を常設して、大会ではエントリーしたプレイヤーをこのランキング順に割り振ればいいだけです。客観的な数値に基づけば、誰からも物言いがつきません。</p>
 <p>例えばスマブラ4には、日本プレイヤーランキング「JPR」が存在します↓</p>
-<p>{% oembed <a href="https://twitter.com/harukisb/status/955440620218105857">https://twitter.com/harukisb/status/955440620218105857</a> %}</p>
+<p>{% oembed 
+<a href="https://twitter.com/harukisb/status/955440620218105857" target="_blank" rel="noopener">https://twitter.com/harukisb/status/955440620218105857</a>
+ %}</p>
 <p>上のランキングは最新のモノです。前のバージョンの際に作成者が書いたブログですが、プレイヤーランキングの決め方・思想が載っています：http://harukisb.hatenablog.com/entry/2016/11/03/230644</p>
 <p>しかし、プレイヤーランキングの作成方法に物言いがつくことはあります。参考になりますので、以下の批判もセットで御覧ください↓<br>
 しょーぐん批判：http://shogunsnake.hatenablog.com/entry/2018/01/23/210728</p>
@@ -198,7 +200,9 @@
 <li>メンバーが抜けてもチーム名は維持する（海外ではこちらが主流）。ポイント・ランキングはチーム毎に計算されるため、たとえメンバーが4人中3人抜けようとも、チーム名は変えず、チームのランクもそのまま維持される。次の大会で結果が大幅に下がることが見込まれるが、計算が楽。</li>
 </ul>
 <p>こういった手法が考えられます。アメリカのスプラトゥーン2では、Splat Stats が大会結果で「チーム毎に」ランク付けしていました。<br>
-<a href="https://twitter.com/SplatStats">https://twitter.com/SplatStats</a></p>
+
+<a href="https://twitter.com/SplatStats" target="_blank" rel="noopener">https://twitter.com/SplatStats</a>
+</p>
 <h3 id="大会ランキング">大会ランキング</h3>
 <p>そのプレイヤーランキングを決める基盤が、大会ラインキングです。例えばテニスでは4大大会は世界ランキングに反映されるポイントが多めになっており、他大会とは比重が異なります。この傾斜の付け方が大会ランキングです。</p>
 <p>スプラトゥーン2ではオンライン大会が多いため、特に大会数が飽和してくると思います。凄く良いことで、ほぼ全てのゲームで大会数は飽和しません（寧ろ足りなくて飢餓状態になります）。しかし多すぎると、出場する側が疲れるという問題があります。スマブラやスト5は大会の出過ぎで体調を崩す（最悪の実例では入院）選手を沢山見てきましたので、休むべきです。</p>
@@ -210,7 +214,9 @@
 </ul>
 <p>で評価を付けます。<br>
 実際にスマブラ世界ランク（Panda Global Ranking）で用いられる、大会と評価を割り振った表がこちらです↓。日本の大会も含まれています。（Tournament が大会名・Tierが評価です）：
-<a href="https://docs.google.com/spreadsheets/d/1yp15-NiSgw1PR_AsdFLfy4RQpm4EgpvDrfokxRrSYfU/edit">https://docs.google.com/spreadsheets/d/1yp15-NiSgw1PR_AsdFLfy4RQpm4EgpvDrfokxRrSYfU/edit</a></p>
+
+<a href="https://docs.google.com/spreadsheets/d/1yp15-NiSgw1PR_AsdFLfy4RQpm4EgpvDrfokxRrSYfU/edit" target="_blank" rel="noopener">https://docs.google.com/spreadsheets/d/1yp15-NiSgw1PR_AsdFLfy4RQpm4EgpvDrfokxRrSYfU/edit</a>
+</p>
 <p><img src="https://ayuha167.github.io/images/pgrv2.png" alt="&ldquo;代替メッセージ&rdquo;"><br>
 [大会ランクの一部スクショ。日本の Umebura Japan Major が DreamHack Austin と同格なのは本当に頑張ったと思います。]</p>
 <p>S,A,B,C と割り振られているのが分かるでしょうか。（実際はC未満の大会も有る。）こうすると、超上位勢同士が同じ大会に揃って出る目安が見えてきます。では、強い人が出なかった結果ランク付けを低くされた大会は意味が無いのかというと、そういう訳ではありません。逆に超上位勢が低ランク大会に出なくなることで、</p>
@@ -224,13 +230,19 @@
 決勝ルールに関しては、多くの大会で決勝付近は違うルールになります。例えばずっと2本先取なのにTop8から3本先取になるといった具合です。3本先取は経験がモノを言うので、真剣勝負で経験できる場は貴重な機会です。</p>
 <p>また、「中堅にもポイントが入る」に関しては一見「弱いやつが過大評価されて良くないのでは？」と思えるのですが、そうではないです。大会ランク分け無しにやってしまうと、全ポイントが一握りの強豪に持って行かれて、中堅以下（もはや「上の中」以下）にポイントが一切入らなくなります。下がサチってしまいます。これでは意味がありません。上位から下まで、滑らかにポイントが入ることが理想です。</p>
 <p>ストVでは、Capcom Pro Tour という世界ツアー形式になっており、Capcom USA の手で各地の大会が認定されており、更にどの大会が Premier なのか（上位入賞に追加特典がある）を示しています。↓
-<a href="https://capcomprotour.com/schedule/">https://capcomprotour.com/schedule/</a></p>
+
+<a href="https://capcomprotour.com/schedule/" target="_blank" rel="noopener">https://capcomprotour.com/schedule/</a>
+</p>
 <h3 id="大会運営の運営">大会運営の運営</h3>
 <p>過去にスト4（現スト5）やロケットリーグといったゲームが、まさに世界で「大会数が飽和している状態」でした。そこで大会を秩序立て、日付を割り振り、大会のランキングを明示したことで、競技性が高くなったと言われています。こういった運営アドバイスをTwitchはしているので、気になりましたら実際にそれをしている人達（ZhiやNintendude）に私から質問をすることも出来ます。</p>
 <p>また、大会運営はどうやってきたのかを追ったスマブラ4界隈の歴史に関してのインタビューがありますので、時系列順でなにをしたのかは参考になるかと思います：</p>
 <ul>
-<li>前篇 : <a href="http://jp.automaton.am/articles/gamer-pick/20170711-50442/2/">http://jp.automaton.am/articles/gamer-pick/20170711-50442/2/</a></li>
-<li>後編 : <a href="http://jp.automaton.am/articles/gamer-pick/20170712-50556/">http://jp.automaton.am/articles/gamer-pick/20170712-50556/</a></li>
+<li>前篇 : 
+<a href="http://jp.automaton.am/articles/gamer-pick/20170711-50442/2/" target="_blank" rel="noopener">http://jp.automaton.am/articles/gamer-pick/20170711-50442/2/</a>
+</li>
+<li>後編 : 
+<a href="http://jp.automaton.am/articles/gamer-pick/20170712-50556/" target="_blank" rel="noopener">http://jp.automaton.am/articles/gamer-pick/20170712-50556/</a>
+</li>
 </ul>
 <h2 id="esports">esports</h2>
 <p>狭義な話をすると、この更に上まで詰めたものを “esports” と呼びます。日本では躍起になってなんでもesportsと命名されますが、「ゲームだって大会運営しっかりしていて強いプレイヤーを序列づけているからスポーツみたいじゃん」という道順でesportsという単語は生まれました。厳しい話をするとスマブラ4（DXも）でさえ、esports と呼べるかはギリギリグレーな領域です。</p>
@@ -280,7 +292,7 @@
     
       <div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -315,7 +327,9 @@
 
     <p>
       
-        <p>アユハです。ゲーマーの生き方や考え方について、色々訊かれることが多いのでそれらをブログにまとめています。筆者プロフィールは<a href="https://ayuha167.github.io/blog/2013/12/25/title/">こちら</a>から。</p>
+        <p>アユハです。ゲーマーの生き方や考え方について、色々訊かれることが多いのでそれらをブログにまとめています。筆者プロフィールは
+<a href="https://ayuha167.github.io/blog/2013/12/25/title/" target="_blank" rel="noopener">こちら</a>
+から。</p>
 <p>最近移行したため、過去記事でバグっていた場合は Twitter へのリプライでお教え下さい。</p>
 
       
@@ -380,6 +394,12 @@
           
             
               <li class="post">
+                <a href="https://ayuha167.github.io/blog/2023/09/12/">儒学経典『大学』とゲーマーの生き方</a>
+              </li>
+            
+          
+            
+              <li class="post">
                 <a href="https://ayuha167.github.io/blog/2023/08/14/">競技シーンは誰のためのものか</a>
               </li>
             
@@ -423,12 +443,6 @@
             
               <li class="post">
                 <a href="https://ayuha167.github.io/blog/2022/03/23/">ストリーマーファンから大会スタッフとなった人たち</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="https://ayuha167.github.io/blog/2022/02/02/">トロピカル～ジュ！プリキュア と Authenticity</a>
               </li>
             
           

@@ -247,9 +247,15 @@
       <guid>https://ayuha167.github.io/blog/2017/01/03/</guid>
       <description>&lt;p&gt;2016年12月28-30日。RTA in Japan というオフラインイベントが行われました。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;website : &lt;a href=&#34;https://rtainjapan.net/&#34;&gt;https://rtainjapan.net/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Twitter : &lt;a href=&#34;https://twitter.com/rta_play&#34;&gt;https://twitter.com/rta_play&lt;/a&gt;
-{% oembed &lt;a href=&#34;https://twitter.com/rta_play/status/815849630122459136&#34;&gt;https://twitter.com/rta_play/status/815849630122459136&lt;/a&gt; %}&lt;/li&gt;
+&lt;li&gt;website : 
+&lt;a href=&#34;https://rtainjapan.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://rtainjapan.net/&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Twitter : 
+&lt;a href=&#34;https://twitter.com/rta_play&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://twitter.com/rta_play&lt;/a&gt;
+
+{% oembed 
+&lt;a href=&#34;https://twitter.com/rta_play/status/815849630122459136&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://twitter.com/rta_play/status/815849630122459136&lt;/a&gt;
+ %}&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;その主催者の「もか」さんに訊ねてみました。&lt;/p&gt;</description>
     </item>

@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 恋心は超グリーディ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 14 Aug 2023 01:00:34 +0900</lastBuildDate><atom:link href="https://ayuha167.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Sep 2023 01:00:34 +0900</lastBuildDate><atom:link href="https://ayuha167.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>儒学経典『大学』とゲーマーの生き方</title>
+      <link>https://ayuha167.github.io/blog/2023/09/12/</link>
+      <pubDate>Tue, 12 Sep 2023 01:00:34 +0900</pubDate>
+      
+      <guid>https://ayuha167.github.io/blog/2023/09/12/</guid>
+      <description>&lt;p&gt;儒学は日本や東アジア圏に広まっている倫理規範です。古い価値観の代表例として今は扱われますが、ゲーマー特に大会運営やストリーマーの方々が生きて行くにあたり参考になると思った内容があったため、布教も兼ねてここにまとめます。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>競技シーンは誰のためのものか</title>
       <link>https://ayuha167.github.io/blog/2023/08/14/</link>
@@ -748,7 +757,9 @@
       
       <guid>https://ayuha167.github.io/blog/2017/02/17/</guid>
       <description>&lt;p&gt;2017年2月中旬に公開した “Genesis4 旅日記” のブログエントリーです。この旅日記はウェブサイト上でしか公開していませんが、履歴のためにブログにもURL載せました。それだけです。&amp;hellip;毎年恒例です。
-&lt;a href=&#34;http://ayuha167.web.fc2.com/lian_xinhaguridi/Genesis4_00.html&#34;&gt;http://ayuha167.web.fc2.com/lian_xinhaguridi/Genesis4_00.html&lt;/a&gt;&lt;/p&gt;</description>
+
+&lt;a href=&#34;http://ayuha167.web.fc2.com/lian_xinhaguridi/Genesis4_00.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://ayuha167.web.fc2.com/lian_xinhaguridi/Genesis4_00.html&lt;/a&gt;
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -778,9 +789,15 @@
       <guid>https://ayuha167.github.io/blog/2017/01/03/</guid>
       <description>&lt;p&gt;2016年12月28-30日。RTA in Japan というオフラインイベントが行われました。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;website : &lt;a href=&#34;https://rtainjapan.net/&#34;&gt;https://rtainjapan.net/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Twitter : &lt;a href=&#34;https://twitter.com/rta_play&#34;&gt;https://twitter.com/rta_play&lt;/a&gt;
-{% oembed &lt;a href=&#34;https://twitter.com/rta_play/status/815849630122459136&#34;&gt;https://twitter.com/rta_play/status/815849630122459136&lt;/a&gt; %}&lt;/li&gt;
+&lt;li&gt;website : 
+&lt;a href=&#34;https://rtainjapan.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://rtainjapan.net/&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;Twitter : 
+&lt;a href=&#34;https://twitter.com/rta_play&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://twitter.com/rta_play&lt;/a&gt;
+
+{% oembed 
+&lt;a href=&#34;https://twitter.com/rta_play/status/815849630122459136&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://twitter.com/rta_play/status/815849630122459136&lt;/a&gt;
+ %}&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;その主催者の「もか」さんに訊ねてみました。&lt;/p&gt;</description>
     </item>
@@ -793,7 +810,9 @@
       <guid>https://ayuha167.github.io/blog/2016/12/17/</guid>
       <description>&lt;p&gt;こんにちはアユハです。&lt;br&gt;
 スマホからTwitchへ、ボタン操作でカメラ生配信を可能とする手引です。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://docs.google.com/document/d/1HTSZQ1R-U3LMQzR8qkuIdMmTrdIi_ZvSd7uvh1_Oy_A/edit?usp=sharing&#34;&gt;https://docs.google.com/document/d/1HTSZQ1R-U3LMQzR8qkuIdMmTrdIi_ZvSd7uvh1_Oy_A/edit?usp=sharing&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://docs.google.com/document/d/1HTSZQ1R-U3LMQzR8qkuIdMmTrdIi_ZvSd7uvh1_Oy_A/edit?usp=sharing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://docs.google.com/document/d/1HTSZQ1R-U3LMQzR8qkuIdMmTrdIi_ZvSd7uvh1_Oy_A/edit?usp=sharing&lt;/a&gt;
+&lt;/p&gt;
 &lt;p&gt;こちらの英語版を、日本語に訳しました。&lt;/p&gt;</description>
     </item>
     
@@ -865,7 +884,9 @@
       
       <guid>https://ayuha167.github.io/blog/2016/03/27/</guid>
       <description>&lt;p&gt;Twitch API は公開されています。デベロッパの方向け&amp;hellip;程には書くスキルがないのですが、紹介いたします。
-&lt;a href=&#34;https://github.com/justintv/Twitch-API&#34;&gt;https://github.com/justintv/Twitch-API&lt;/a&gt;&lt;/p&gt;</description>
+
+&lt;a href=&#34;https://github.com/justintv/Twitch-API&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/justintv/Twitch-API&lt;/a&gt;
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -875,7 +896,9 @@
       
       <guid>https://ayuha167.github.io/blog/2016/03/26/</guid>
       <description>&lt;p&gt;2016年2月末に公開した &amp;ldquo;Genesis3 旅日記&amp;rdquo; のブログエントリーです。この旅日記はウェブサイト上でしか公開していませんが、履歴のためにブログにもURL載せました。それだけです。&lt;br&gt;
-&lt;a href=&#34;http://ayuha167.web.fc2.com/lian_xinhaguridi/Genesis3_00.html&#34;&gt;http://ayuha167.web.fc2.com/lian_xinhaguridi/Genesis3_00.html&lt;/a&gt;&lt;/p&gt;</description>
+
+&lt;a href=&#34;http://ayuha167.web.fc2.com/lian_xinhaguridi/Genesis3_00.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://ayuha167.web.fc2.com/lian_xinhaguridi/Genesis3_00.html&lt;/a&gt;
+&lt;/p&gt;</description>
     </item>
     
     <item>

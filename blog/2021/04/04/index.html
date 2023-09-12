@@ -38,7 +38,7 @@
   <meta name="author" content="アユハ/Ayuha Nakamura">
 
   
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.118.2">
 
   
   
@@ -194,8 +194,12 @@
 <p>元々は GitHub Pages の機能を用いてブログを公開する方法に便乗していました。その代表的な手段として Octopress があったのですが、Octopress がアップデートされないことに伴い Ruby の version がデッドロックに入り、Hugo 移行を決意しました。</p>
 <p>主にこちらのページを参考にしました：</p>
 <ul>
-<li><a href="https://iriya-ufo.net/blog/2018/12/27/octopress-to-hugo/">https://iriya-ufo.net/blog/2018/12/27/octopress-to-hugo/</a></li>
-<li><a href="https://gam0022.net/blog/2016/09/25/migrated-from-octopress-to-hugo/">https://gam0022.net/blog/2016/09/25/migrated-from-octopress-to-hugo/</a></li>
+<li>
+<a href="https://iriya-ufo.net/blog/2018/12/27/octopress-to-hugo/" target="_blank" rel="noopener">https://iriya-ufo.net/blog/2018/12/27/octopress-to-hugo/</a>
+</li>
+<li>
+<a href="https://gam0022.net/blog/2016/09/25/migrated-from-octopress-to-hugo/" target="_blank" rel="noopener">https://gam0022.net/blog/2016/09/25/migrated-from-octopress-to-hugo/</a>
+</li>
 </ul>
 <p>筆者の環境は：</p>
 <ul>
@@ -204,10 +208,10 @@
 <p>です。</p>
 <h2 id="初期設定">初期設定</h2>
 <p>まずは Hugo を入れなくていはなりません。</p>
-<pre><code>$ brew install hugo
+<pre tabindex="0"><code>$ brew install hugo
 </code></pre><p>筆者は Homebrew でしたので、これで。（今後も <code>$</code> と書いた場合はターミナルです。）<br>
 そこから、最初のセットアップに入ります：</p>
-<pre><code>$ hugo new site &lt;ブログ名&gt;
+<pre tabindex="0"><code>$ hugo new site &lt;ブログ名&gt;
 $ cd &lt;ブログ名&gt;
 $ git init 
 </code></pre><h2 id="テーマ">テーマ</h2>
@@ -218,37 +222,39 @@ $ git init
 <a href="https://themes.gohugo.io/hugo-octopress/" target="_blank" rel="noopener">&ldquo;Octopress Hugo&rdquo;</a>
  というものを使用し、同じデザインで戻って参りました。</p>
 <ul>
-<li><a href="https://themes.gohugo.io/hugo-octopress/">https://themes.gohugo.io/hugo-octopress/</a></li>
+<li>
+<a href="https://themes.gohugo.io/hugo-octopress/" target="_blank" rel="noopener">https://themes.gohugo.io/hugo-octopress/</a>
+</li>
 </ul>
 <p>このページです。↑筆者自身へ：常にここに帰ってください。</p>
 <h2 id="記事をコピー">記事をコピー</h2>
 <p>Octopress で markdown で書いていた記事を、URL そのままに全部移したいわけです。ターミナルで：</p>
-<pre><code>$ cp &lt;octopressディレクトリ&gt;/source/_posts/* &lt;hugoディレクトリ&gt;/content/post/
+<pre tabindex="0"><code>$ cp &lt;octopressディレクトリ&gt;/source/_posts/* &lt;hugoディレクトリ&gt;/content/post/
 $ cp -r &lt;octopressディレクトリ&gt;/source/images/ &lt;hugoディレクトリ&gt;/static/images
 </code></pre><p>これを打つと、markdownファイルと画像ファイルを移せます。（&lt;hugoディレクトリ&gt; は上の &lt;ブログ名&gt; と同じディレクトリです。）デフォルトでは <code>&lt;hugoディレクトリ&gt;/static/images</code> というディレクトリがなかったので、適宜手動で作ってください。</p>
 <h2 id="文字列置換">文字列置換</h2>
 <p>Octopress と Hugo では markdown 文法の書き方が微妙に違います。例えばOctopressでは見出しは <code>##</code> でしたが、Hugo では <code>##　</code> にしないといけないため、こうした置換を一斉に行います。</p>
 <p>しかし、Mac の sed コマンドでだいぶ苦戦しました。最初は指示に従って：</p>
-<pre><code> $ find . -type f -exec sed -i &quot;&quot; -e 's/## /##  /g' {} \;
+<pre tabindex="0"><code> $ find . -type f -exec sed -i &#34;&#34; -e &#39;s/## /##  /g&#39; {} \;
 </code></pre><p>と入れたのですが、エラーが置きました。どうやら、 -type f だと .DS_Store ファイルも含めてしまうため、</p>
 <ul>
 <li>sed: -i may not be used with stdin</li>
 <li>sed: RE error: illegal byte sequence</li>
 </ul>
 <p>といったエラーを吐くようです。そのため <code>-type f </code> ではなく、 <code>-name </code> で .markdown 形式のファイルを一括指定しました。</p>
-<pre><code> $ find . -name \*.markdown -exec sed -i &quot;&quot; -e 's/## /##  /g' {} \;   
+<pre tabindex="0"><code> $ find . -name \*.markdown -exec sed -i &#34;&#34; -e &#39;s/## /##  /g&#39; {} \;   
 </code></pre><p>「もっとよむ」でお馴染みの <code>more</code> タグを入れている方はこちらも：</p>
-<pre><code> $ find . -name \*.markdown -exec sed -i &quot;&quot; -e 's/&lt;!-- more --&gt;/&lt;!--more--&gt;/g' {} \;
+<pre tabindex="0"><code> $ find . -name \*.markdown -exec sed -i &#34;&#34; -e &#39;s/&lt;!-- more --&gt;/&lt;!--more--&gt;/g&#39; {} \;
 </code></pre><p>Hugo はタイムスタンプの形式に指定がある（Hugoでは <code>2016-09-25T15:09:57</code> のような形式のタイムスタンプでないとダメ）ので、こちらを適用↓</p>
-<pre><code> $ find . -name \*.markdown -exec sed -i &quot;&quot; -e 's/date: \([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\) \([0-9]\{2\}:[0-9]\{2\}\)$/date: \1T\2:00+09:00/g' {} \;
+<pre tabindex="0"><code> $ find . -name \*.markdown -exec sed -i &#34;&#34; -e &#39;s/date: \([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\) \([0-9]\{2\}:[0-9]\{2\}\)$/date: \1T\2:00+09:00/g&#39; {} \;
 </code></pre><p>特に <code>$ sed</code> コマンドは、どうやら Mac のみの特殊仕様もいろいろ有るみたいなので、凄く注意して下さい。ブログ文章ファイルはバックアップを取っておきましょう。</p>
 <h2 id="パーマリンク">パーマリンク</h2>
 <p>これは皆さんに当てはまるか分かりませんが、筆者は移行にあたって少し不便な要素がありました。基本的に Octopressでは <code>&lt;ブログ名&gt;.github.io./blog/YYYY/MM/DD/</code> というURLになるようにセットしていました。Octopress の <code>_comfig.yml</code> で</p>
-<pre><code>permalink: /blog/:year/:month/:day/:title/
+<pre tabindex="0"><code>permalink: /blog/:year/:month/:day/:title/
 </code></pre><p>と入れていました。</p>
 <p>これは Hugo では <code>config.toml</code> にて</p>
-<pre><code>[permalinks]
-  post = &quot;/blog/:year/:month/:day/&quot;
+<pre tabindex="0"><code>[permalinks]
+  post = &#34;/blog/:year/:month/:day/&#34;
 </code></pre><p>と書いておけば継承できます。</p>
 <p>しかし、Hugo に移行するにあたり、私のブログに不都合がありました。URL を維持するために、</p>
 <ul>
@@ -256,7 +262,7 @@ $ cp -r &lt;octopressディレクトリ&gt;/source/images/ &lt;hugoディレク�
 <li>Hugo でパーマリンクに <code>/:slug/</code> を末尾に入れれば（ <code>post = &quot;/blog/:year/:month/:day/:slug/&quot;</code>）にすれば解決すると見せかけて、<code>:/slug</code> は他の記事にも自動で勝手にタイトルをURLに入れてしまうため面倒</li>
 </ul>
 <p>という問題があったので、<code>:slug</code> は入れずに、例外的なブログ記事だけ、markdownファイル冒頭のヘッダー（<code>title: &quot;ほげほげ&quot;</code>などがある段落）に、</p>
-<pre><code>url: &quot;blog/2013/12/23/title/&quot;
+<pre tabindex="0"><code>url: &#34;blog/2013/12/23/title/&#34;
 </code></pre><p>のようにパーマリンクを書き、手動で設定しました。</p>
 <h2 id="twitter-card-ogp">Twitter Card (OGP)</h2>
 <p>Twitter や social media で、URLつきで投稿した場合にプレビューみたいなサムネイルを表示してくれるもの：これが OGP です。Hugo-Octopress では &ldquo;Twitter Card&rdquo; という名称でこれを与えています。</p>
@@ -266,30 +272,34 @@ $ cp -r &lt;octopressディレクトリ&gt;/source/images/ &lt;hugoディレク�
 </li>
 </ul>
 <p>この設定をしておくべきです。まずは <code>config.toml</code>　に以下を加えます。</p>
-<pre><code>[params]
+<pre tabindex="0"><code>[params]
   # Twitter card config
   # Enable.
   twitterCardEnabled = true
-  # Don't include the @.
+  # Don&#39;t include the @.
   # twitterCardSite = 
-  twitterCardDomain = &quot;parsiya.net&quot;
-  # Don't include the @.
-  twitterCardAuthor = &quot;CryptoGangsta&quot;
+  twitterCardDomain = &#34;parsiya.net&#34;
+  # Don&#39;t include the @.
+  twitterCardAuthor = &#34;CryptoGangsta&#34;
 </code></pre><p>ただ、これだけだと画像のURL指定が変になっているので、マニュアルにあった処理をします。
 <code>your-website/themes/Hugo-Octopress/layouts/partials/custom_twitter_card.html</code> ファイルを <code>your-website/layouts/partials/custom-twitter-card.html</code> にコピペします。
 で、</p>
-<pre><code>&lt;meta name=&quot;twitter:image:src&quot; 
+<pre tabindex="0"><code>&lt;meta name=&#34;twitter:image:src&#34; 
 </code></pre><p>ではじまる行がサムネイル(Twitter Card)を司っているので、ここを</p>
-<pre><code>&lt;meta name=&quot;twitter:image:src&quot; content=&quot;https://ayuha167.github.io/images/Hugo/TwitterCard.jpg/&gt;
+<pre tabindex="0"><code>&lt;meta name=&#34;twitter:image:src&#34; content=&#34;https://ayuha167.github.io/images/Hugo/TwitterCard.jpg/&gt;
 </code></pre><p>に書き換えます。これをしておけば、後は markdownページのヘッダーに</p>
-<pre><code>twitterImage: true
+<pre tabindex="0"><code>twitterImage: true
 </code></pre><p>の項目を追加するだけでOGP（Twitter Card）が自動生成されます。</p>
 <h2 id="ツイートボタン">ツイートボタン</h2>
 <p>このページにもついている、読者に押して頂く「ツイートする」ボタンのことです。addThis という外部サービスを使いました。</p>
 <p>これらをご参考に：</p>
 <ul>
-<li><a href="https://gohugohq.com/partials/add-this-social-sharing/">https://gohugohq.com/partials/add-this-social-sharing/</a></li>
-<li><a href="https://www.trhrkmk.com/posts/hugo-share-button-addthis/">https://www.trhrkmk.com/posts/hugo-share-button-addthis/</a></li>
+<li>
+<a href="https://gohugohq.com/partials/add-this-social-sharing/" target="_blank" rel="noopener">https://gohugohq.com/partials/add-this-social-sharing/</a>
+</li>
+<li>
+<a href="https://www.trhrkmk.com/posts/hugo-share-button-addthis/" target="_blank" rel="noopener">https://www.trhrkmk.com/posts/hugo-share-button-addthis/</a>
+</li>
 </ul>
 <p>まずは 
 <a href="https://www.addthis.com/" target="_blank" rel="noopener">AddThis 公式サイト</a>
@@ -298,27 +308,27 @@ $ cp -r &lt;octopressディレクトリ&gt;/source/images/ &lt;hugoディレク�
 例えば公式マニュアル指示では <code>/partials/</code> の中に <code>addthis.html </code> を作れとのことですが、私の場合は <code>themes/Hugo-Octopress/layouts/partials</code> の中に追加しました。</p>
 <p>いずれにせよ <code>/partials</code> に作った各ファイルの内訳は以下です：</p>
 <p><strong>addthis.html</strong></p>
-<pre><code>&lt;div class=&quot;addthis_inline_share_toolbox&quot;&gt;&lt;/div&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;//s7.addthis.com/js/300/addthis_widget.js#pubid={{- .Site.Params.addThis -}}&quot; async&gt;&lt;/script&gt;
-​&lt;script type=&quot;text/javascript&quot;&gt;
+<pre tabindex="0"><code>&lt;div class=&#34;addthis_inline_share_toolbox&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;//s7.addthis.com/js/300/addthis_widget.js#pubid={{- .Site.Params.addThis -}}&#34; async&gt;&lt;/script&gt;
+​&lt;script type=&#34;text/javascript&#34;&gt;
     var addthis_config = addthis_config||{};
     addthis_config.data_track_addressbar = false;
     addthis_config.data_track_clickback = false;
 &lt;/script&gt;
 </code></pre><p><strong>addthis-script.html</strong></p>
-<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;//s7.addthis.com/js/300/addthis_widget.js#pubid={{- .Site.Params.addThis -}}&quot; async&gt;&lt;/script&gt;
+<pre tabindex="0"><code>&lt;script type=&#34;text/javascript&#34; src=&#34;//s7.addthis.com/js/300/addthis_widget.js#pubid={{- .Site.Params.addThis -}}&#34; async&gt;&lt;/script&gt;
 </code></pre><p>で、これを紐付けるために、 <code>config.toml</code> に自分の addThis ID を入力します。</p>
-<pre><code>[params]
-    addThis = &quot;ra-XXXXXXXXXXXXXXX&quot;
+<pre tabindex="0"><code>[params]
+    addThis = &#34;ra-XXXXXXXXXXXXXXX&#34;
 </code></pre><p>これで準備完了です。あとは HTML でこのボタンは生成できますので、筆者は <code>themes/Hugo-Octopress/layouts/partials/post_footer.html</code> の中に：</p>
-<pre><code>&lt;body&gt;
-{{ partial &quot;addthis&quot; . }}
-{{ partial &quot;addthis-script&quot; . }}
+<pre tabindex="0"><code>&lt;body&gt;
+{{ partial &#34;addthis&#34; . }}
+{{ partial &#34;addthis-script&#34; . }}
 &lt;/body&gt;
 </code></pre><p>この文を書き加えたら起動しました。</p>
 <h2 id="table-of-content">Table of Content</h2>
 <p>目次（Table of Content）を自動生成出来ます。markdown の文中で：</p>
-<pre><code>｛｛&lt; toc &gt;｝｝
+<pre tabindex="0"><code>｛｛&lt; toc &gt;｝｝
 </code></pre><p>と記入するだけで目次（ToC）が生成出来るようになりました。結果は以下：</p>
 
 
@@ -351,69 +361,75 @@ $ cp -r &lt;octopressディレクトリ&gt;/source/images/ &lt;hugoディレク�
 <p>&hellip;と、ここまでで下準備は終了です。</p>
 <h1 id="新記事を投稿">新記事を投稿</h1>
 <p>ブログ記事、つまり markdown の新しいページを作成したい場合は、このコマンドでいけます：</p>
-<pre><code> $ hugo new blog
+<pre tabindex="0"><code> $ hugo new blog
 </code></pre><p>厳密にタイトルを指定したい場合は、</p>
-<pre><code> $ hugo new post/title.markdown
+<pre tabindex="0"><code> $ hugo new post/title.markdown
 </code></pre><h2 id="プレビュー">プレビュー</h2>
 <p>出来たページを確認したい場合は、</p>
-<pre><code>$ hugo server -D
+<pre tabindex="0"><code>$ hugo server -D
 </code></pre><p>で、ブラウザで <code>localhost:1313</code> へ行けば確認できます。</p>
 <h1 id="移行">移行</h1>
 <p>遂に移行の刻です。</p>
 <p>Hugo ディレクトリで GitHub の初期設定が必要です。ここを参考にしました：</p>
 <ul>
-<li><a href="https://prog-8.com/docs/git-env">https://prog-8.com/docs/git-env</a></li>
+<li>
+<a href="https://prog-8.com/docs/git-env" target="_blank" rel="noopener">https://prog-8.com/docs/git-env</a>
+</li>
 </ul>
 <p>筆者はそこまで GitHub が得意ではないので、手動でやりました。例えば、元の Octopress でのリポジトリが ayuha167.github.io だったので、GitHub の Settings からテキトーに違う名前にして空けました（ayuha1919.github.io など）。リポジトリで Rename を押せばいけます。実質削除です。</p>
 <p>その後、GitHub で &ldquo;New Repository&rdquo; を作成。こちらの名前（Repository Name）を ayuha167.github.io にします。（つまり筆者の場合、上の &lt;ブログ名&gt; の部分が ayuha167 にあたります。）</p>
 <p>あとは、ここまで作ってきたローカルの &lt;ブログ名&gt; ディレクトリにあるファイルを Push します。このページを参考にpushしました↓</p>
 <ul>
-<li><a href="https://qiita.com/satzz/items/e24bd703fc04fb45f7ef">https://qiita.com/satzz/items/e24bd703fc04fb45f7ef</a></li>
+<li>
+<a href="https://qiita.com/satzz/items/e24bd703fc04fb45f7ef" target="_blank" rel="noopener">https://qiita.com/satzz/items/e24bd703fc04fb45f7ef</a>
+</li>
 </ul>
 <p>ターミナルにて、</p>
-<pre><code>$ cd &lt;ブログ名&gt;
+<pre tabindex="0"><code>$ cd &lt;ブログ名&gt;
 $ git clone &lt;GitHubリポジトリのアドレス&gt;
 </code></pre><p>をします。<code>&lt;GitHubリポジトリのアドレス&gt;</code> は GitHub で「↓Code」ボタンから現れます。たいてい <code>&lt;ユーザー名&gt;/&lt;ブログ名&gt;.github.io</code> のはずです。<br>
 上のコマンドを実行すると、&lt;ブログ名&gt;.github.io という空のディレクトリが生成されます。</p>
 <p><code>$ hugo</code> コマンドを使うと、Hugo が作ってくれたページが <code>/public</code> ディレクトリ以下に生成されます。そのため <code>/pubglic</code> 以下をリポジトリの gh-pages ブランチへ push します。ブランチを用意するところまでは：</p>
-<pre><code>$ hugo 
+<pre tabindex="0"><code>$ hugo 
 $ cd public
 $ git init
 $ git remote add origin git@github.com:ayuha167/ayuha167.github.io
 $ git checkout -b gh-pages
 </code></pre><p>これで準備完了です。このあと、実際に push するには、</p>
-<pre><code>$ git add --all
-$ git commit -m 'release `date '+%Y-%m-%d %H:%M’`'
+<pre tabindex="0"><code>$ git add --all
+$ git commit -m &#39;release `date &#39;+%Y-%m-%d %H:%M’`&#39;
 $ git push origin gh-pages
 </code></pre><p>です。これでページが公開されたはずです。</p>
-<p>せっかちな人は index.html （私の場合は <a href="https://ayuha167.github.io/index.html">https://ayuha167.github.io/index.html</a>）にアクセスすると、すぐにチェック出来ます。</p>
+<p>せっかちな人は index.html （私の場合は 
+<a href="https://ayuha167.github.io/index.html" target="_blank" rel="noopener">https://ayuha167.github.io/index.html</a>
+）にアクセスすると、すぐにチェック出来ます。</p>
 <h2 id="備忘録">備忘録</h2>
 <p>筆者へ。</p>
 <p>新ポストを送るには、ブログのディレクトリ（/ayuha167）に入ってから、</p>
-<pre><code>$ hugo
+<pre tabindex="0"><code>$ hugo
 $ cd public
 $ git add --all
-$ git commit -m'コメント'
+$ git commit -m&#39;コメント&#39;
 $ git push origin gh-pages
 </code></pre><p>を打たなければなりません。これが面倒なので、ブログのディレクトリに <code>push.sh</code> というシェルコマンドファイルを作りました。以下です：</p>
 <p><strong>push.sh</strong></p>
-<pre><code>#!/bin/sh
+<pre tabindex="0"><code>#!/bin/sh
 
 hugo
 
 cd public
 git add --all
-git commit -m'push from push.sh'
+git commit -m&#39;push from push.sh&#39;
 git push origin gh-pages 
 
 cd ..
 </code></pre><p>そのため、内容をアップデートしましたら、ブログのディレクトリ直下で、</p>
-<pre><code>$ sh push.sh
+<pre tabindex="0"><code>$ sh push.sh
 </code></pre><p>とやるだけでアップデート出来ます。</p>
 <p>エラーチェックをするだけなら <code>$ hugo</code> や <code>$ hugo server -D</code> でも可です。</p>
 <h2 id="備忘録埋め込み">備忘録：埋め込み</h2>
 <p>Hugo の埋め込みは特殊です。iframe がそのままでは使えません。例えば YouTube は：</p>
-<pre><code>｛｛&lt; youtube 12vAUFA8O2E &gt;｝｝
+<pre tabindex="0"><code>｛｛&lt; youtube 12vAUFA8O2E &gt;｝｝
 </code></pre><p>となります。結果は以下：</p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -425,12 +441,12 @@ cd ..
 <a href="https://qiita.com/waytoa/items/4107945cbd3883f51755" target="_blank" rel="noopener">こちらの記事</a>
  を参考に。</p>
 <p>例えば Google Drive のファイル埋め込みを有効化する場合、<code>/layouts/shortcodes/googledrive.html</code> というファイルを作成し、中身は：</p>
-<pre><code>&lt;div class=&quot;embed google-drive&quot;&gt;
-	&lt;iframe src=&quot;https://drive.google.com/file/d/{{ index .Params 0}}/preview&quot; width=&quot;640&quot; height=&quot;360&quot; allow=&quot;autoplay&quot;&gt;
+<pre tabindex="0"><code>&lt;div class=&#34;embed google-drive&#34;&gt;
+	&lt;iframe src=&#34;https://drive.google.com/file/d/{{ index .Params 0}}/preview&#34; width=&#34;640&#34; height=&#34;360&#34; allow=&#34;autoplay&#34;&gt;
 	&lt;/iframe&gt;
 &lt;/div&gt;
 </code></pre><p>とします。すると、記事内で：</p>
-<pre><code>{{＜ googledrive 固有コード ＞}}
+<pre tabindex="0"><code>{{＜ googledrive 固有コード ＞}}
 </code></pre><p>と打てば、 <code>https://drive.google.com/file/d/固有コード/preview</code> だったモノが埋め込まれます。このように、iframe が向こうでも自分で Shortcode を作って実用させられます。</p>
         </div>
         
@@ -494,7 +510,9 @@ cd ..
 
     <p>
       
-        <p>アユハです。ゲーマーの生き方や考え方について、色々訊かれることが多いのでそれらをブログにまとめています。筆者プロフィールは<a href="https://ayuha167.github.io/blog/2013/12/25/title/">こちら</a>から。</p>
+        <p>アユハです。ゲーマーの生き方や考え方について、色々訊かれることが多いのでそれらをブログにまとめています。筆者プロフィールは
+<a href="https://ayuha167.github.io/blog/2013/12/25/title/" target="_blank" rel="noopener">こちら</a>
+から。</p>
 <p>最近移行したため、過去記事でバグっていた場合は Twitter へのリプライでお教え下さい。</p>
 
       
@@ -559,6 +577,12 @@ cd ..
           
             
               <li class="post">
+                <a href="https://ayuha167.github.io/blog/2023/09/12/">儒学経典『大学』とゲーマーの生き方</a>
+              </li>
+            
+          
+            
+              <li class="post">
                 <a href="https://ayuha167.github.io/blog/2023/08/14/">競技シーンは誰のためのものか</a>
               </li>
             
@@ -602,12 +626,6 @@ cd ..
             
               <li class="post">
                 <a href="https://ayuha167.github.io/blog/2022/03/23/">ストリーマーファンから大会スタッフとなった人たち</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="https://ayuha167.github.io/blog/2022/02/02/">トロピカル～ジュ！プリキュア と Authenticity</a>
               </li>
             
           
